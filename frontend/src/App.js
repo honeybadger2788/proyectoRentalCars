@@ -1,31 +1,21 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-
-import Button from '@mui/material/Button';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#1DBEB4',
-      light: '#50dad1',
-      dark: '#29938c',
-      contrastText: '#fff',
-    },
-    secondary: {
-      main: '#383B58',
-      light: '#545776',
-      dark: '#262838',
-      contrastText: '#000',
-    },
-  },
-});
+import './styles/style.css'
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Button variant="contained">MUI button</Button>
-    </ThemeProvider>
+    <>
+      <h1>h1</h1>
+      <h2>h2</h2>
+      <h3>h3</h3>
+      <h4>h4</h4>
+      <p>Text 1</p>
+      <p className='small-text'>Text 2</p>
+      <button>Button 1</button>
+      <button className='btn-medium'>Button 2</button>
+      <button className='btn-large'>Button 3</button>
+      <button className='btn-xl'>Button 4</button>
+      <button className='btn-outlined'>Button 4</button>
+      <button className='btn-outlined btn-small'>Button 5</button>
+    </>
   );
 }
 
