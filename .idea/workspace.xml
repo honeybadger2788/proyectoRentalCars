@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ed197a6-82c0-4581-a785-18828f634f0c" name="Changes" comment="add backend structure folders">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/final_project_group_2/WebApplication/controllers/CategoriaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/final_project_group_2/WebApplication/WebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/final_project_group_2/WebApplication/WebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/final_project_group_2/WebApplication/controllers/default" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="c98a4730-cada-4190-928a-13278bace74e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,22 +10,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
-      <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
-      </map>
-    </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
-      </map>
-    </option>
-  </component>
-  <component name="ProjectId" id="2GNHC6EcJrI2MtXvFAiipI5Aoyo" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2GSkvU1Pmc128XfmjwtPAlS7HMy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,84 +19,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\justo\DH\Proyecto Final\grupo-02\backend\src\main\java\final_project_group_2\WebApplication\service" />
-      <recent name="C:\Users\justo\DH\Proyecto Final\grupo-02\backend\src\main\java\final_project_group_2\WebApplication\repository" />
-      <recent name="C:\Users\justo\DH\Proyecto Final\grupo-02\backend\src\main\java\final_project_group_2\WebApplication\modules" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="WebApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="final_project_group_2.WebApplication.WebApplication" />
-      <module name="WebApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="final_project_group_2.WebApplication.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.WebApplication" />
-      </list>
-    </recent_temporary>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8ed197a6-82c0-4581-a785-18828f634f0c" name="Changes" comment="" />
-      <created>1666221992037</created>
+      <changelist id="c98a4730-cada-4190-928a-13278bace74e" name="Changes" comment="" />
+      <created>1666389618467</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1666221992037</updated>
+      <updated>1666389618467</updated>
     </task>
-    <task id="LOCAL-00001" summary="add backend structure folders">
-      <created>1666226985032</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1666226985032</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/development" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="add backend structure folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="add backend structure folders" />
   </component>
 </project>
