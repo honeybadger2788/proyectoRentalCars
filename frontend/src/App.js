@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Home from './views/Home/Home.js';
 import MainLayout from './components/MainLayout/MainLayout';
-import Login from './views/login';
-import Register from './views/register';
+import Login from './views/Login/Login';
+import Register from './views/Register/Register';
 
 import './styles/style.css';
 
