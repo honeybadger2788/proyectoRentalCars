@@ -1,0 +1,36 @@
+.footer {
+  align-items: center;
+  background-color: var(--primary);
+  display: flex;
+  color: var(--white);
+  flex-shrink: 0;
+  justify-content: space-between;
+  padding: 19px;
+  width: 100%;
+}
+
+.social {
+  display: none;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) and (min-width: 425px) {
+  .social {
+    align-items: flex-end;
+    justify-content: flex-end;
+    display: flex;
+    gap: 30px;
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 769px) {
+  .social {
+    align-items: flex-end;
+    justify-content: flex-end;
+    display: flex;
+    gap: 30px;
+  }
+}
