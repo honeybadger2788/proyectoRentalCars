@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from './Register.module.css'
 
 export default function Register() {
@@ -8,34 +9,34 @@ export default function Register() {
             <form>
                 <div className={styles.nameContainer}>
                     <div className={styles.container}>
-                        <label for='firstName'>Nombre</label>
+                        <label htmlFor='firstName'>Nombre</label>
                         <input className={styles.name}id='firstName'type='text'/>
                     </div>
                 
                     <div className={styles.container}>
-                        <label for='lastName'>Apellido</label>
+                        <label htmlFor='lastName'>Apellido</label>
                         <input className={styles.name}id='lastName'type='text'/>
                     </div>
                 </div>
                 
                 <div className={styles.container}>
-                    <label for='email'>Correo electrónico</label>
+                    <label htmlFor='email'>Correo electrónico</label>
                     <input id='email'type='email'/>
                 </div>
 
                 <div className={styles.container}>
-                    <label for='password'>Contraseña</label>
+                    <label htmlFor='password'>Contraseña</label>
                     <input id='password'type='password'/>
                 </div>
                 
                 <div className={styles.container}>
-                    <label for='confirmPassword'>Confirmar contraseña</label>
+                    <label htmlFor='confirmPassword'>Confirmar contraseña</label>
                     <input id='confirmPassword'type='password'/>
                 </div>
                 
                 <button type='submit'>Crear cuenta</button>
             </form>
-            <p className='small-text center'>¿Ya tiene una cuenta? <a href='/'>Iniciar sesión</a></p>
+            <p className='small-text center'>¿Ya tiene una cuenta? <Link to='/login'>Iniciar sesión</Link></p>
         </div>
     )
   }
