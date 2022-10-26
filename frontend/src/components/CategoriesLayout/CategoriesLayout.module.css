@@ -1,0 +1,33 @@
+
+
+.section {
+    width: 100%;
+}
+
+.h1 {
+    padding: 0.5rem 0rem 0.5rem 0.75rem;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 0.75rem;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 2.5rem;
+    }
+}
+
+/* TABLET */
+
+@media (max-width:768px) and (min-width: 425px){
+    .container {
+        padding: 0 1.875rem;
+    }
+}
