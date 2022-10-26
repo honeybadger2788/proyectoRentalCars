@@ -1,11 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-
 import Home from './views/Home/Home.js';
 import MainLayout from './components/MainLayout/MainLayout';
 import Login from './views/Login/Login';
 import Register from './views/Register/Register';
-
 import './styles/style.css';
+
 
 function App() {
   return (
@@ -17,6 +16,8 @@ function App() {
           <Route path="register" element={<Register />} />
         </Route>
       </Routes>
+
+      
     </div>
   );
 }
