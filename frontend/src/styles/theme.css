@@ -89,7 +89,15 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -174,7 +182,7 @@ p.small-text {
 
 button {
   background: var(--primary);
-  color: var(--white);
+  color: white;
   font-family: 'Roboto';
   font-size: 1rem;
   font-weight: 700;
@@ -185,7 +193,6 @@ button {
   width: 206px;
   border-radius: 5px;
   border: none;
-  margin: 1rem 0;
 }
 
 button > a {
