@@ -32,23 +32,21 @@ public class CategoryController {
     //Agregar una nueva categoria
     @PostMapping("/add")
     public ResponseEntity<?> addCategory(@RequestBody Category category){
-        categoryService.addCategory(category);
-        return ResponseEntity.ok(HttpStatus.OK);
+
+        return categoryService.addCategory(category);
     }
 
 
     //Eliminar una categoria
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable Integer id){
-        categoryService.deleteCategory(id);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return categoryService.deleteCategory(id);
     }
 
 
     //Editar una categoria
     @PutMapping("/update")
     public ResponseEntity<?> updateCategory(@RequestBody Category category){
-        categoryService.updateCategory(category);
-        return ResponseEntity.ok(HttpStatus.ACCEPTED);
+        return categoryService.updateCategory(category);
     }
 }

@@ -12,9 +12,9 @@ public interface ICategoryService {
 
     ResponseEntity<?> findById(Integer id);
 
-    Category addCategory(Category category);
+    ResponseEntity<?> addCategory(Category category);
 
     ResponseEntity<?> deleteCategory(Integer id);
 
-    Category updateCategory(Category category);
+    ResponseEntity<?> updateCategory(Category category);
 }

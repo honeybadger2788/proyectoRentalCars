@@ -44,8 +44,10 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public Category addCategory(Category newCategory) {
-        return categoryRepository.save(newCategory);
+    public ResponseEntity<?> addCategory(Category newCategory) {
+        if (categoryRepository.save(newCategory) != null) return ResponseEntity.ok(HttpStatus.OK);
+
+        return (ResponseEntity<?>) ResponseEntity.internalServerError();
     }
 
     @Override
@@ -58,7 +60,13 @@ public class CategoryService implements ICategoryService {
     }
 
     @Override
-    public Category updateCategory(Category category) {
-        return categoryRepository.save(category);
+    public ResponseEntity<?> updateCategory(Category category) {
+        if(categoryRepository.findById(category.getId()).isPresent()) {
+            categoryRepository.save(category);
+            return new ResponseEntity("La categoría con id " + category.getId() + " ha sido modificada.", HttpStatus.OK);
+        }else{
+            return new ResponseEntity("La categoría con id " + category.getId() + " no existe.", HttpStatus.NOT_FOUND);
+        }
+
     }
 }
