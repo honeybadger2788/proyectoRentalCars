@@ -1,0 +1,25 @@
+.section {
+  background: rgba(56, 59, 88, 0.1);
+  padding-bottom: 1.1875rem;
+}
+
+.h1 {
+  padding: 1.1875rem 0rem 0.5rem 0.75rem;
+}
+
+.card_layout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 769px) {
+  .card_layout {
+    flex-direction: row;
+  }
+}

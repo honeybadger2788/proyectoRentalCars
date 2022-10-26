@@ -1,9 +1,16 @@
-import Search from '../../components/SearchLayout/Search/Search'
+import List from '../../components/List/List';
+import Search from '../../components/SearchLayout/Search/Search';
+import CategoriesLayout from '../../components/CategoriesLayout/CategoriesLayout';
+import cars from '../../mock/cars-mock.json';
+
+
 function Home() {
   return (
     <>
-      <Search/>
-      <h1>h1</h1>
+      <Search></Search>
+      <CategoriesLayout/>
+      <List data={cars}>Listado</List>
+      {/* <h1>h1</h1>
       <h2>h2</h2>
       <h3>h3</h3>
       <h4>h4</h4>
@@ -11,8 +18,8 @@ function Home() {
       <p className="small-text">Text 2</p>
       <button>Button 1</button>
       <button className="btn-medium">Button 2</button>
-      {/* <button className="btn-large">Button 3</button>
-      <button className="btn-xl">Button 4</button> */}
+      <button className="btn-large">Button 3</button>
+      <button className="btn-xl">Button 4</button>
       <button className="btn-outlined">Button 4</button>
       <button className="btn-outlined btn-small">Button 5</button>
       <p>
@@ -37,7 +44,7 @@ function Home() {
         hendrerit ligula vel, imperdiet augue. Aenean mauris nunc, rhoncus id
         sodales eget, rhoncus ut turpis. Aliquam luctus vestibulum sem at
         mattis.
-      </p>
+      </p> */}
     </>
   );
 }
