@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Chevrolet Cruze LTZ",
+    "category": "Compacto",
+    "location": "CABA, Buenos Aires",
+    "description": "his face hide when guests come over always ensure to lay down in such a manner that tail can lightly brush human's nose , and munch, munch, chomp, chom",
+    "img": "./images/categoryImage.jpg"
+  },
+  {
+    "title": "Chevrolet Spin",
+    "category": "Familiar",
+    "location": "Rosario",
+    "description": "his face hide when guests come over always ensure to lay down in such a manner that tail can lightly brush human's nose , and munch, munch, chomp, chom",
+    "img": "./images/categoryImage.jpg"
+  },
+  {
+    "title": "Chevrolet Tracker",
+    "category": "Familiar",
+    "location": "Cordoba",
+    "description": "his face hide when guests come over always ensure to lay down in such a manner that tail can lightly brush human's nose , and munch, munch, chomp, chom",
+    "img": "./images/categoryImage.jpg"
+  },
+  {
+    "title": "Chevrolet Camaro",
+    "category": "Sport",
+    "location": "Mendoza",
+    "description": "his face hide when guests come over always ensure to lay down in such a manner that tail can lightly brush human's nose , and munch, munch, chomp, chom",
+    "img": "./images/categoryImage.jpg"
+  },
+  {
+    "title": "Ford Mustang",
+    "category": "Sport",
+    "location": "Iguazu",
+    "description": "his face hide when guests come over always ensure to lay down in such a manner that tail can lightly brush human's nose , and munch, munch, chomp, chom",
+    "img": "./images/categoryImage.jpg"
+  },
+  {
+    "title": "Ford Ka",
+    "category": "Compacto",
+    "location": "Mar del Plata",
+    "description": "his face hide when guests come over always ensure to lay down in such a manner that tail can lightly brush human's nose , and munch, munch, chomp, chom",
+    "img": "./images/categoryImage.jpg"
+  }
+]

@@ -1,0 +1,85 @@
+.navbar {
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+}
+
+.navbar_hidden {
+  visibility: hidden;
+  position: relative;
+  z-index: -20;
+}
+
+.logo_container {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.logo_image {
+  height: 50px;
+  width: auto;
+}
+
+.logo_text {
+  color: var(--secondaryLight);
+  display: none;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.nav_menu {
+  display: none;
+}
+
+.bar {
+  background-color: var(--secondary);
+  display: block;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  width: 25px;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) and (min-width: 425px) {
+  .nav_menu {
+    display: flex;
+    gap: 16px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 769px) {
+  .navbar {
+    padding: 8px 40px;
+  }
+
+  .logo_text {
+    display: block;
+  }
+
+  .nav_menu {
+    display: flex;
+    gap: 16px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
