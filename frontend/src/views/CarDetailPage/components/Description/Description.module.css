@@ -1,0 +1,19 @@
+.descriptionContainer {
+  margin: 8px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .descriptionContainer {
+    margin: 0px 40px 24px 40px;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) and (min-width: 425px) {
+  .descriptionContainer {
+    margin: 0px 40px 24px 40px;
+  }
+}

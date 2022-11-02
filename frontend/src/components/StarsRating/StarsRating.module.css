@@ -1,0 +1,7 @@
+.filledStar {
+  color: var(--primary);
+}
+
+.hollowStar {
+  color: #bcbcbc;
+}
