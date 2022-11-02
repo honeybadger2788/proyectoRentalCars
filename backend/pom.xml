@@ -7,6 +7,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
+
 	</parent>
 	<groupId>final_project_group_2</groupId>
 	<artifactId>WebApplication</artifactId>
@@ -31,11 +32,6 @@
 			<version>2.14.0-rc1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -51,6 +47,14 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.30</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -60,6 +64,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>test</finalName>
 	</build>
 
 </project>
