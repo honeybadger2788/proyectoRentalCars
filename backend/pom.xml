@@ -64,7 +64,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<finalName>test</finalName>
+		<finalName>Grupo2-Backend</finalName>
 	</build>
 
 </project>
