@@ -1,0 +1,46 @@
+.title {
+  margin: 8px;
+}
+
+.divider {
+  background-color: var(--primary);
+  border: 0;
+  height: 1px;
+}
+
+.container {
+  margin: 8px 8px 24px 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.policyTitle {
+  margin-bottom: 8px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 24px 40px;
+  }
+
+  .title {
+    margin: 8px 40px;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) and (min-width: 425px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 24px 40px;
+  }
+
+  .title {
+    margin: 8px 40px;
+  }
+}

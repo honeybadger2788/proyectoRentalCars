@@ -1,0 +1,38 @@
+{
+  "id": 1,
+  "category": "Car",
+  "characteristics": {
+    "ac": "A/C",
+    "doors": "5 puertas",
+    "passengers": "5 personas",
+    "suitcases": "1 maleta",
+    "km": "Ilimitado",
+    "transmission": "Manual"
+  },
+  "description": {
+    "title": "Un auto confiable para acompañarte en el viaje",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus."
+  },
+  "distance": "5 minutos del centro",
+  "location": "Buenos Aires, Argentina",
+  "rating": {
+    "title": "Muy Bueno",
+    "stars": 4,
+    "score": 8
+  },
+  "title": "4x4 Car",
+  "policies": [
+    {
+      "title": "Cobertura de Seguro",
+      "description": "Seguro de responsabilidad civil. Cobertura por daño y robo con franquicia de ARS 650000"
+    },
+    {
+      "title": "Política de tanque",
+      "description": "El tanque se entrega lleno, y debe devolver el auto con el tanque lleno también."
+    },
+    {
+      "title": "Política de cancelación",
+      "description": "Cancelación gratuita hasta 24 horas antes del retiro"
+    }
+  ]
+}
