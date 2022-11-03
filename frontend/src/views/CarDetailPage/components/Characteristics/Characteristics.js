@@ -16,13 +16,15 @@ function Characteristics({ characteristics }) {
       <hr className={styles.divider} />
       <div className={styles.container}>
         <article>
-          {icons.passengers} {characteristics.passengers}
+          <span className={styles.icon}>{icons.passengers}</span>{' '}
+          {characteristics.passengers}
         </article>
         <article>
-          {icons.suitcases} {characteristics.suitcases}
+          <span className={styles.icon}>{icons.suitcases}</span>{' '}
+          {characteristics.suitcases}
         </article>
         <article>
-          {icons.ac} {characteristics.ac}
+          <span className={styles.icon}>{icons.ac}</span> {characteristics.ac}
         </article>
         <article>
           <span className={styles.textIcon}>Km</span> {characteristics.km}
@@ -34,7 +36,8 @@ function Characteristics({ characteristics }) {
           {characteristics.transmission}
         </article>
         <article>
-          {icons.car} {characteristics.doors}
+          <span className={styles.icon}>{icons.car}</span>{' '}
+          {characteristics.doors}
         </article>
       </div>
     </section>
