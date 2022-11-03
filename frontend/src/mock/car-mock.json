@@ -14,6 +14,38 @@
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus."
   },
   "distance": "5 minutos del centro",
+  "images": [
+    {
+      "id": 1,
+      "title": "A super cool car",
+      "url": "/images/amarok-1.webp"
+    },
+    {
+      "id": 2,
+      "title": "The side of the car",
+      "url": "/images/amarok-2.webp"
+    },
+    {
+      "id": 3,
+      "title": "The front of the car",
+      "url": "/images/amarok-3.webp"
+    },
+    {
+      "id": 4,
+      "title": "The rear part of the car",
+      "url": "/images/amarok-4.webp"
+    },
+    {
+      "id": 5,
+      "title": "A close up of the car",
+      "url": "/images/amarok-5.webp"
+    },
+    {
+      "id": 6,
+      "title": "Another photo",
+      "url": "/images/amarok-6.webp"
+    }
+  ],
   "location": "Buenos Aires, Argentina",
   "rating": {
     "title": "Muy Bueno",

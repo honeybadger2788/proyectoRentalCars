@@ -1,0 +1,60 @@
+/* Desktop */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-row: 1fr 1fr;
+  gap: 16px;
+  position: relative;
+}
+
+.gridContainer > img {
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.gridContainer > img:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.openLightbox {
+  bottom: 16px;
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+  right: 16px;
+  position: absolute;
+}
+
+/* Tablet and Mobile */
+.slider {
+  width: 100%;
+}
+
+.imgContainer {
+  position: relative;
+}
+
+.imgContainer > img {
+  object-fit: cover;
+  height: 50vh;
+  width: 100%;
+}
+
+.index {
+  color: white;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 821px) {
+  .container {
+    margin: 0px 40px;
+  }
+}

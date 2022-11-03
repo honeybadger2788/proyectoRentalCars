@@ -4,6 +4,7 @@ import Calendar from './components/Calendar/Calendar';
 import Characteristics from './components/Characteristics/Characteristics';
 import Description from './components/Description/Description';
 import Header from './components/Header/Header';
+import Images from './components/Images/Images';
 import Location from './components/Location/Location';
 import Policies from './components/Policies/Policies';
 
@@ -26,11 +27,12 @@ function CarDetailPage() {
           distance={car.distance}
           rating={car.rating}
         />
+        <section className={styles.social}>
+          <i className="fa-solid fa-share-nodes fa-xl"></i>
+          <i className="fa-regular fa-heart fa-xl"></i>
+        </section>
       </div>
-      <section className={styles.social}>
-        <i className="fa-solid fa-share-nodes fa-xl"></i>
-        <i className="fa-regular fa-heart fa-xl"></i>
-      </section>
+      <Images images={car.images} />
       <Description description={car.description} />
       <Characteristics characteristics={car.characteristics} />
       <Policies policies={car.policies} />
