@@ -6,17 +6,23 @@
   background-color: var(--primary);
   border: 0;
   height: 1px;
+  margin-bottom: 16px;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin: 8px 8px 24px 8px;
+  margin: 0px 8px;
+}
+
+.icon {
+  color: var(--primary);
 }
 
 .textIcon {
-  border: 1px solid var(--secondaryLight);
+  color: var(--primary);
+  border: 1px solid var(--primary);
   border-radius: 3px;
   font-size: 10px;
   margin-right: 8px;
@@ -28,10 +34,10 @@
 @media (min-width: 768px) {
   .container {
     grid-template-columns: repeat(4, 1fr);
-    margin: 24px 40px;
+    margin: 0px 40px;
   }
 
   .title {
-    margin: 8px 40px;
+    margin: 0px 40px;
   }
 }

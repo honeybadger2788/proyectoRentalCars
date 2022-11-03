@@ -24,7 +24,7 @@
 }
 
 .starContainer {
-  align-items: end;
+  align-items: flex-end;
   display: flex;
   flex-direction: column;
   gap: 5px;
