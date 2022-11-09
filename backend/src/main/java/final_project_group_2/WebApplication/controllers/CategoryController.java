@@ -13,6 +13,7 @@ import java.util.List;
 //Endpoint de interaccion con "Categories"
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000", "http://s3-0222ftc1-grupo2-frontend.s3-website.us-east-2.amazonaws.com"})
 @RequestMapping("/categories")
 public class CategoryController {
 
