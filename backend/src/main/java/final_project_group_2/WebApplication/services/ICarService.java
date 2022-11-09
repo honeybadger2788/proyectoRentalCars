@@ -13,7 +13,7 @@ public interface ICarService {
     List<CarDTO> listCars();
 
     ResponseEntity<?> findById(Integer id);
-
+    List<CarDTO> findByCity(Integer cityId);
     ResponseEntity<?> deleteCar(Integer id);
 
     ResponseEntity<?> updateCar(Car car);
