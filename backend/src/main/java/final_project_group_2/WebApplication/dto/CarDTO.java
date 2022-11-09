@@ -2,10 +2,7 @@ package final_project_group_2.WebApplication.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import final_project_group_2.WebApplication.models.Category;
-import final_project_group_2.WebApplication.models.Characteristic;
-import final_project_group_2.WebApplication.models.City;
-import final_project_group_2.WebApplication.models.Image;
+import final_project_group_2.WebApplication.models.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,12 +16,12 @@ public class CarDTO{
     private Characteristic characteristic;
     private String descriptionContent;
     private City city;
-    private String ratingTitle;
-    private Integer ratingStars;
-    private Integer ratingScore;
+    private Set<Rating> rating;
     private String title;
 
     private Set<Image> images;
+
+    private Set<Policy> policies;
     
     public CarDTO() {
 
@@ -74,28 +71,12 @@ public class CarDTO{
         this.city = city;
     }
 
-    public String getRatingTitle() {
-        return ratingTitle;
+    public Set<Rating> getRating() {
+        return rating;
     }
 
-    public void setRatingTitle(String ratingTitle) {
-        this.ratingTitle = ratingTitle;
-    }
-
-    public Integer getRatingStars() {
-        return ratingStars;
-    }
-
-    public void setRatingStars(Integer ratingStars) {
-        this.ratingStars = ratingStars;
-    }
-
-    public Integer getRatingScore() {
-        return ratingScore;
-    }
-
-    public void setRatingScore(Integer ratingScore) {
-        this.ratingScore = ratingScore;
+    public void setRating(Set<Rating> rating) {
+        this.rating = rating;
     }
 
     public String getTitle() {
@@ -114,4 +95,11 @@ public class CarDTO{
         this.images = images;
     }
 
+    public Set<Policy> getPolicies() {
+        return policies;
+    }
+
+    public void setPolicies(Set<Policy> policies) {
+        this.policies = policies;
+    }
 }
