@@ -7,19 +7,19 @@ export default function CategoriesLayout() {
     const categories = [
         {
           title: 'Económico',
-          image: './images/categoryImage.jpg'
+          image: 'https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/categoryImage.jpg'
         },
         {
           title: 'Deportivo',
-          image: './images/categoryImage.jpg'
+          image: 'https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/categoryImage.jpg'
         },
         {
           title: 'De lujo',
-          image: './images/categoryImage.jpg'
+          image: 'https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/categoryImage.jpg'
         },
         {
           title: '4x4',
-          image: './images/categoryImage.jpg'
+          image: 'https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/categoryImage.jpg'
         }
       ]
 

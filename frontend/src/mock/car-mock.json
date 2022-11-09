@@ -18,32 +18,32 @@
     {
       "id": 1,
       "title": "A super cool car",
-      "url": "/images/amarok-1.webp"
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-1.webp"
     },
     {
       "id": 2,
       "title": "The side of the car",
-      "url": "/images/amarok-2.webp"
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-2.webp"
     },
     {
       "id": 3,
       "title": "The front of the car",
-      "url": "/images/amarok-3.webp"
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-3.webp"
     },
     {
       "id": 4,
       "title": "The rear part of the car",
-      "url": "/images/amarok-4.webp"
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-4.webp"
     },
     {
       "id": 5,
       "title": "A close up of the car",
-      "url": "/images/amarok-5.webp"
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-6.webp"
     },
     {
       "id": 6,
       "title": "Another photo",
-      "url": "/images/amarok-6.webp"
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-6.webp"
     }
   ],
   "location": "Buenos Aires, Argentina",
