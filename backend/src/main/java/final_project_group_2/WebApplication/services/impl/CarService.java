@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CarService implements ICarService {
@@ -71,6 +72,15 @@ public class CarService implements ICarService {
         }
     }
 
-    
-
+    @Override
+    public List<CarDTO> findByCity(Integer cityId) {
+        List<CarDTO> carsDTO = new ArrayList<>();
+        List<Car> cars = carRepository.findByCity(cityId);
+        if (cars.size() > 0) {
+            for (Car car : cars) {
+                carsDTO.add(mapper.convertValue(car, CarDTO.class));
+            }
+        }
+        return carsDTO;
+    }
 }

@@ -54,4 +54,10 @@ public class CarController {
     public ResponseEntity<?> updateCategory(@RequestBody Car car){
         return carService.updateCar(car);
     }
+
+    //Devolver listado de productos por ciudad
+    @GetMapping("/filter")
+    public List<CarDTO> getCarsByCity(@RequestParam Integer cityId) {
+        return carService.findByCity(cityId);
+    }
 }
