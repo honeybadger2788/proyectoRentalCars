@@ -2,14 +2,17 @@ import List from '../../components/List/List';
 import Search from '../../components/SearchLayout/Search/Search';
 import CategoriesLayout from '../../components/CategoriesLayout/CategoriesLayout';
 import cars from '../../mock/cars-mock.json';
+import useFetch from '../../useFetch.js'
 
 
 function Home() {
+
+  const {data:cars, error} = useFetch('http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car')
   return (
     <>
       <Search></Search>
       <CategoriesLayout/>
-      <List data={cars}>Listado</List>
+      {cars && <List data={cars}>Listado</List>}
       {/* <h1>h1</h1>
       <h2>h2</h2>
       <h3>h3</h3>

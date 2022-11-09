@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "http://s3-0222ftc1-grupo2-frontend.s3-website.us-east-2.amazonaws.com"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://grupo2-frontend.s3-website.us-east-2.amazonaws.com"})
 @RequestMapping("/rating")
 public class RatingController {
     @Autowired
