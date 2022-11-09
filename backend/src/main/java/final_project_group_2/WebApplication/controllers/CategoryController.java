@@ -5,7 +5,6 @@ import final_project_group_2.WebApplication.dto.CategoryDTO;
 import final_project_group_2.WebApplication.models.Category;
 import final_project_group_2.WebApplication.services.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

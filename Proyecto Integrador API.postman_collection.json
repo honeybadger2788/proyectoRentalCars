@@ -1,117 +1,470 @@
 {
 	"info": {
-		"_postman_id": "5d76d8b9-f446-44f3-a6cb-55c62b8ef45e",
+		"_postman_id": "a30d6e3c-3db0-49f5-9a5a-51556977d633",
 		"name": "Proyecto Integrador API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "17796629"
+		"_exporter_id": "18542893"
 	},
 	"item": [
 		{
-			"name": "Agregar categoría",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Carros\",\r\n    \"description\":\"Los mejores carros para rentar.\",\r\n    \"image\":\"https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{baseURL}}/add",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"add"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar categoria",
-			"event": [
+			"name": "Categorias",
+			"item": [
 				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
+					"name": "Agregar categoría",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Carros\",\r\n    \"description\":\"Los mejores carros para rentar.\",\r\n    \"image\":\"https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/categories/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories",
+								"add"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{baseURL}}/delete/1",
-					"host": [
-						"{{baseURL}}"
+				{
+					"name": "Eliminar categoria",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"delete",
-						"1"
-					]
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/categories/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar categoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"4\",\r\n    \"title\": \"Hostal\",\r\n    \"description\":\"Los mejores hoteles de la ciudad\",\r\n    \"image\":\"https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/categories/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista categorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/categories",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Actualizar categoria",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"id\":\"4\",\r\n    \"title\": \"Hostal\",\r\n    \"description\":\"Los mejores hoteles de la ciudad\",\r\n    \"image\":\"https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Producto",
+			"item": [
+				{
+					"name": "Agregar Producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Chevrolet Cruze\",\r\n    \"category\": {\r\n        \"id\": \"2\",\r\n        \"title\": \"Carros\",\r\n        \"description\":\"Los mejores carros para rentar.\",\r\n        \"image\":\"https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg\"\r\n    },\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristicId\":1,\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"city\":{\r\n        \"id\": 1,\r\n        \"name\": \"Buenos Aires\",\r\n        \"state\": \"CABA\",\r\n        \"zipCode\": 1019,\r\n        \"latitude\": \"34°35′59″S\",\r\n        \"longitude\": \"58°22′55″O\"\r\n    },\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":4,\r\n    \"ratingScore\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/car/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"add"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{baseURL}}/update",
-					"host": [
-						"{{baseURL}}"
+				{
+					"name": "Eliminar producto",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"update"
-					]
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/product/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"product",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"title\": \"Chevrolet Spin\",\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristicId\":1,\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"cityId\":1,\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":2,\r\n    \"ratingScore\":2\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/categories/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Obtener lista categorias",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/",
-					"host": [
-						"{{baseURL}}"
+			"name": "City",
+			"item": [
+				{
+					"name": "Agregar ciudad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1019\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/city/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"city",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar ciudad",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						""
-					]
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar ciudad",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1016\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista ciudades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Images",
+			"item": [
+				{
+					"name": "Agregar imagen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1019\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/city/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"city",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar imagen",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar imagen",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1016\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista imagenes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
