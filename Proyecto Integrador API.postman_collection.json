@@ -131,7 +131,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Chevrolet Cruze\",\r\n    \"category\": {\r\n        \"id\": \"2\",\r\n        \"title\": \"Carros\",\r\n        \"description\":\"Los mejores carros para rentar.\",\r\n        \"image\":\"https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg\"\r\n    },\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristicId\":1,\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"city\":{\r\n        \"id\": 1,\r\n        \"name\": \"Buenos Aires\",\r\n        \"state\": \"CABA\",\r\n        \"zipCode\": 1019,\r\n        \"latitude\": \"34°35′59″S\",\r\n        \"longitude\": \"58°22′55″O\"\r\n    },\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":4,\r\n    \"ratingScore\":4\r\n}",
+							"raw": "{\r\n    \"title\": \"Chevrolet Cruze\",\r\n    \"category\": {\r\n        \"id\": 1\r\n    },\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristic\":{\r\n        \"ac\": true,\r\n        \"doors\": 4,\r\n        \"passengers\": 4,\r\n        \"largeBagsCapacity\": 2,\r\n        \"smallBagsCapacity\": 1,\r\n        \"ilimitedKm\": true,\r\n        \"automatic\": true,\r\n        \"size\":\"grande\"\r\n    },\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"city\":{\r\n        \"id\": 1\r\n    },\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":4,\r\n    \"ratingScore\":4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -229,6 +229,71 @@
 							],
 							"path": [
 								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener producto por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por ciudad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/car/filter?cityId=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "cityId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/car/filter?category=\"Carros\"",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "\"Carros\""
+								}
 							]
 						}
 					},
@@ -361,7 +426,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1019\r\n\r\n}",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Chevrolet Cruze\",\r\n        \"url\": \"https://www.chevrolet.com.ar/content/dam/chevrolet/mercosur/argentina/espanol/index/cars/2019-cruze-premier/colorizer/enero-21/colorizer-branco-summit.jpg?imwidth=960\",\r\n        \"car\": {\"id\": 2}\r\n            \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -369,12 +434,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/city/add",
+							"raw": "{{baseURL}}/images/add",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"city",
+								"images",
 								"add"
 							]
 						}
@@ -427,7 +492,237 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1016\r\n\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Chevrolet Cruze ++\",\r\n    \"url\": \"https://www.chevrolet.com.ar/content/dam/chevrolet/mercosur/argentina/espanol/index/cars/2019-cruze-premier/colorizer/enero-21/colorizer-branco-summit.jpg?imwidth=960\",\r\n    \"car\": {\r\n        \"id\": 2\r\n    }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/images/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"images",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista imagenes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rating",
+			"item": [
+				{
+					"name": "Agregar rating",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"car\": {\"id\": 1},\r\n        \"user_id\":1,\r\n        \"score\": 5            \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rating/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rating",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar rating",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rating/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rating",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar rating",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"car\": {\"id\": 1},\r\n    \"user_id\":1,\r\n    \"score\": 3  \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/rating/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"rating",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista rating",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Policies",
+			"item": [
+				{
+					"name": "Agregar policy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Chevrolet Cruze\",\r\n        \"url\": \"https://www.chevrolet.com.ar/content/dam/chevrolet/mercosur/argentina/espanol/index/cars/2019-cruze-premier/colorizer/enero-21/colorizer-branco-summit.jpg?imwidth=960\",\r\n        \"car\": {\"id\": 2}\r\n            \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/images/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"images",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar policy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar policy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Política de tanque\",\r\n    \"description\": \"El tanque se entrega con una carga mínima de combustible. Es responsabilidad del cliente cargarlo y devolverlo a la empresa con una carga igual o mayor a la entregada.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -448,7 +743,7 @@
 					"response": []
 				},
 				{
-					"name": "Obtener lista imagenes",
+					"name": "Obtener lista de policies",
 					"request": {
 						"method": "GET",
 						"header": [],

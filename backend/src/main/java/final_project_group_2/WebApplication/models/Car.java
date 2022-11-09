@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -30,29 +29,38 @@ public class Car extends ProductAbstract{
     @JoinColumn(name = "cityId")
     private City city;
 
-    //Hay que cambiar el rating porque ahora es una tabla aparte
-    private String ratingTitle;
-    private Integer ratingStars;
-    private Integer ratingScore;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Rating> rating;
+
     private String title;
+
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<Image> images;
+
+    @ManyToMany(
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinTable(name = "car_policy",
+            joinColumns = @JoinColumn(name = "carId"),
+            inverseJoinColumns = @JoinColumn(name = "policyId"))
+    private Set<Policy> policies;
     
 
     public Car() {
     }
     
-    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String ratingTitle, Integer ratingStars, Integer ratingScore, String title) {
+    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String title) {
         this.category = category;
         this.descriptionTitle = descriptionTitle;
         this.characteristic = characteristic;
         this.descriptionContent = descriptionContent;
         this.city = city;
-        this.ratingTitle = ratingTitle;
-        this.ratingStars = ratingStars;
-        this.ratingScore = ratingScore;
         this.title = title;
     }
 
@@ -104,29 +112,14 @@ public class Car extends ProductAbstract{
         this.city = city;
     }
 
-    public String getRatingTitle() {
-        return ratingTitle;
+    public Set<Rating> getRating() {
+        return rating;
     }
 
-    public void setRatingTitle(String ratingTitle) {
-        this.ratingTitle = ratingTitle;
+    public void setRating(Set<Rating> rating) {
+        this.rating = rating;
     }
 
-    public Integer getRatingStars() {
-        return ratingStars;
-    }
-
-    public void setRatingStars(Integer ratingStars) {
-        this.ratingStars = ratingStars;
-    }
-
-    public Integer getRatingScore() {
-        return ratingScore;
-    }
-
-    public void setRatingScore(Integer ratingScore) {
-        this.ratingScore = ratingScore;
-    }
 
     public String getTitle() {
         return title;
@@ -142,5 +135,13 @@ public class Car extends ProductAbstract{
 
     public void setImages(Set<Image> images) {
         this.images = images;
+    }
+
+    public Set<Policy> getPolicies() {
+        return policies;
+    }
+
+    public void setPolicies(Set<Policy> policies) {
+        this.policies = policies;
     }
 }
