@@ -9,13 +9,11 @@ import java.util.List;
 public interface ICarService {
 
     ResponseEntity<?> addCar(Car car);
-    
     List<CarDTO> listCars();
-
     ResponseEntity<?> findById(Integer id);
-    List<CarDTO> findByCity(Integer cityId);
+    List<CarDTO> findByCity(Integer city);
     ResponseEntity<?> deleteCar(Integer id);
-
     ResponseEntity<?> updateCar(Car car);
-
+    List<CarDTO> listByCategory(String category);
+    List<CarDTO> listCarRandom();
 }

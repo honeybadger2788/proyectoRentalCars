@@ -28,6 +28,17 @@ public class CarService implements ICarService {
     ObjectMapper mapper;
 
     @Override
+    public List<CarDTO> listByCategory(String category){
+        List<CarDTO> listCarsDTO = new ArrayList<>();
+        List<Car> cars = carRepository.findByCategory(category);
+        if (cars.size() > 0) {
+            for (Car car : cars) {
+                listCarsDTO.add(mapper.convertValue(car, CarDTO.class));
+            }}
+        return listCarsDTO;
+    }
+
+    @Override
     public ResponseEntity<?> addCar(Car newCar) {
         if (carRepository.save(newCar) != null) return ResponseEntity.ok(HttpStatus.OK);
         return (ResponseEntity<?>) ResponseEntity.internalServerError();
@@ -37,6 +48,16 @@ public class CarService implements ICarService {
     public List<CarDTO> listCars() {
         List<CarDTO> listCarsDTO = new ArrayList<>();
         List<Car> listCars = carRepository.findAll();
+        for (Car car : listCars) {
+            listCarsDTO.add(mapper.convertValue(car, CarDTO.class));
+        }
+        return listCarsDTO;
+    }
+
+    @Override
+    public List<CarDTO> listCarRandom() {
+        List<CarDTO> listCarsDTO = new ArrayList<>();
+        List<Car> listCars = carRepository.listCarRandom();
         for (Car car : listCars) {
             listCarsDTO.add(mapper.convertValue(car, CarDTO.class));
         }

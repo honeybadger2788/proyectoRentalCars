@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a30d6e3c-3db0-49f5-9a5a-51556977d633",
+		"_postman_id": "519aad0a-234e-4c02-9e39-e4aca2f190d8",
 		"name": "Proyecto Integrador API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18542893"
+		"_exporter_id": "18745225"
 	},
 	"item": [
 		{
@@ -114,186 +114,6 @@
 							],
 							"path": [
 								"categories"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Producto",
-			"item": [
-				{
-					"name": "Agregar Producto",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Chevrolet Cruze\",\r\n    \"category\": {\r\n        \"id\": 1\r\n    },\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristic\":{\r\n        \"ac\": true,\r\n        \"doors\": 4,\r\n        \"passengers\": 4,\r\n        \"largeBagsCapacity\": 2,\r\n        \"smallBagsCapacity\": 1,\r\n        \"ilimitedKm\": true,\r\n        \"automatic\": true,\r\n        \"size\":\"grande\"\r\n    },\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"city\":{\r\n        \"id\": 1\r\n    },\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":4,\r\n    \"ratingScore\":4\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/car/add",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"car",
-								"add"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar producto",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/product/delete/1",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"product",
-								"delete",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Actualizar producto",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\":2,\r\n    \"title\": \"Chevrolet Spin\",\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristicId\":1,\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"cityId\":1,\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":2,\r\n    \"ratingScore\":2\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/categories/update",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"categories",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Obtener lista productos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/products",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"products"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Obtener producto por id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/products",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"products"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Filtrar por ciudad",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/car/filter?cityId=1",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"car",
-								"filter"
-							],
-							"query": [
-								{
-									"key": "cityId",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Filtrar por categoría",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/car/filter?category=\"Carros\"",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"car",
-								"filter"
-							],
-							"query": [
-								{
-									"key": "category",
-									"value": "\"Carros\""
-								}
 							]
 						}
 					},
@@ -417,6 +237,186 @@
 			]
 		},
 		{
+			"name": "Producto",
+			"item": [
+				{
+					"name": "Agregar Producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Chevrolet Cruze\",\r\n    \"category\": {\r\n        \"id\": 1\r\n    },\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristic\":{\r\n        \"ac\": true,\r\n        \"doors\": 4,\r\n        \"passengers\": 4,\r\n        \"largeBagsCapacity\": 2,\r\n        \"smallBagsCapacity\": 1,\r\n        \"ilimitedKm\": true,\r\n        \"automatic\": true,\r\n        \"size\":\"grande\"\r\n    },\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"city\":{\r\n        \"id\": 1\r\n    },\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":4,\r\n    \"ratingScore\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/car/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar producto",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/car/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"title\": \"Chevrolet Spin\",\r\n    \"descriptionTitle\":\"La nueva nave de General Motors.\",\r\n    \"characeristicId\":1,\r\n    \"descriptionContent\":\"Loremp ipsum\",\r\n    \"cityId\":1,\r\n    \"ratingTitle\":\"El mejor auto del mundo\",\r\n    \"ratingStars\":2,\r\n    \"ratingScore\":2\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/car/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/car",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener producto por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por ciudad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/car/filter?cityId=1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "cityId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/car/filter?category=\"Carros\"",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"car",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "\"Carros\""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Images",
 			"item": [
 				{
@@ -426,7 +426,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Chevrolet Cruze\",\r\n        \"url\": \"https://www.chevrolet.com.ar/content/dam/chevrolet/mercosur/argentina/espanol/index/cars/2019-cruze-premier/colorizer/enero-21/colorizer-branco-summit.jpg?imwidth=960\",\r\n        \"car\": {\"id\": 2}\r\n            \r\n}",
+							"raw": "{\r\n    \"title\": \"Imagen 1\",\r\n    \"url\": \"google.com.ar\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -434,12 +434,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/images/add",
+							"raw": "{{baseURL}}/city/add",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"images",
+								"city",
 								"add"
 							]
 						}
@@ -487,6 +487,121 @@
 				},
 				{
 					"name": "Actualizar imagen",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1016\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista imagenes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Characteristics",
+			"item": [
+				{
+					"name": "Agregar una Caracteristica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"title\": \"Chevrolet Cruze\",\r\n        \"url\": \"https://www.chevrolet.com.ar/content/dam/chevrolet/mercosur/argentina/espanol/index/cars/2019-cruze-premier/colorizer/enero-21/colorizer-branco-summit.jpg?imwidth=960\",\r\n        \"car\": {\"id\": 2}\r\n            \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/images/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"images",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar una Caracteristica",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/categories/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"categories",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar una Caracteristica",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -730,12 +845,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/cities/update",
+							"raw": "{{baseURL}}/categories/update",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"cities",
+								"categories",
 								"update"
 							]
 						}
@@ -743,17 +858,17 @@
 					"response": []
 				},
 				{
-					"name": "Obtener lista de policies",
+					"name": "Obtener lista imagenes",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/cities",
+							"raw": "{{baseURL}}/categories",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"cities"
+								"categories"
 							]
 						}
 					},
