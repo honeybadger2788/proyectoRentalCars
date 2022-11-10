@@ -16,7 +16,7 @@ function List({ data, children }) {
             title={item.title}
             category={item.category.title}
             description={item.descriptionTitle}
-            location="test"
+            location={item.city.name}
             img={item.images[0]?.url}
           ></Card>
         );
