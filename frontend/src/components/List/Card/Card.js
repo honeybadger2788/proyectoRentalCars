@@ -2,7 +2,7 @@ import styles from './Card.module.css';
 
 export default function Card(props) {
   return (
-    <div className={styles.card_container} key={props.key}>
+    <div className={styles.card_container}>
       <img src={props.img} alt={props.title} />
 
       <div className={styles.details}>

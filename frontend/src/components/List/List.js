@@ -3,8 +3,6 @@ import Card from './Card/Card';
 import styles from './List.module.css';
 
 function List({ data, children }) {
-
-  console.log(data)
   return (
     <section className={styles.section}>
       <h1 className={styles.h1}>{children}</h1>
@@ -12,7 +10,7 @@ function List({ data, children }) {
       {data.map((item, key) => {
         return (
           <Card
-            key={key}
+            key={item.id}
             title={item.title}
             category={item.category.title}
             description={item.descriptionTitle}
