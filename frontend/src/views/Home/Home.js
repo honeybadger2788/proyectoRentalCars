@@ -6,21 +6,39 @@ import useFetch from '../../useFetch';
 
 
 function Home() {
-  const [carsFilter, setCarsFilter] = useState([])
+  const [cityFilter, setCityFilter] = useState()
+  const [categoryFilter, setCategoryFilter] = useState()
 
-  const getCars = (data) => {
-    setCarsFilter(data)
+  const getCity = (data) => {
+    setCityFilter(`?city=${data}`)
+    setCategoryFilter(null)
     console.log(data)
   }
 
-  // dejo este fetch porque el del filtro sólo se ejecuta al realizar una búsqueda
-  const { data: cars, error } = useFetch('http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car')
+  const getCategory = (data) => {
+    setCategoryFilter(`?category=${data}`)
+    setCityFilter(null)
+    console.log(data)
+  }
+
+  const { data: cars,
+    errorCar } =
+    useFetch(`http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car${cityFilter||categoryFilter||""}`)
+
+  const { data: categories,
+    errorCategory } =
+    useFetch('http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/categories')
+
+  if (errorCar)
+    console.log("errorCar: ",errorCar)
+  else if (errorCategory)
+    console.log("errorCategory: ", errorCategory)
   
   return (
     <>
-      <Search getCars={getCars}></Search>
-      <CategoriesLayout/>
-      {cars && <List data={ carsFilter.length > 0 ? carsFilter : cars }>Listado</List>}
+      <Search getCity={getCity}></Search>
+      {categories && <CategoriesLayout getCategory={getCategory} categories={categories} />}
+      {cars && <List data={cars }>Listado</List>}
       {/* <h1>h1</h1>
       <h2>h2</h2>
       <h3>h3</h3>
