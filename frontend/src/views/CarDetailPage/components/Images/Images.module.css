@@ -21,11 +21,14 @@
 }
 
 .openLightbox {
+  background-color: rgb(71 85 105);
+  border-radius: 5px;
   bottom: 16px;
   color: white;
   cursor: pointer;
   text-decoration: underline;
   right: 16px;
+  padding: 8px;
   position: absolute;
 }
 

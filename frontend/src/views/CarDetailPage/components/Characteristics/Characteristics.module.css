@@ -18,6 +18,7 @@
 
 .icon {
   color: var(--primary);
+  margin-right: 8px;
 }
 
 .textIcon {

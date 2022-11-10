@@ -2,7 +2,14 @@ import StarsRating from '../../../../components/StarsRating/StarsRating';
 
 import styles from './Location.module.css';
 
-function Location({ distance, location, rating }) {
+function Location({ city, rating }) {
+  const ratingAverage =
+    rating.length > 0
+      ? Math.floor(
+          rating.reduce((sum, current) => sum + current.score, 0) /
+            rating.length
+        )
+      : 0;
   return (
     <section className={styles.container}>
       <div className={styles.locationContainer}>
@@ -10,21 +17,22 @@ function Location({ distance, location, rating }) {
           <span className={styles.locationIcon}>
             <i className="fa-solid fa-location-dot"></i>
           </span>
-          {location}
+          {city.name}, {city.state}, Argentina
         </p>
-        <p>{distance}</p>
       </div>
-      <div className={styles.ratingContainer}>
-        <div className={styles.starContainer}>
-          <p>{rating.title}</p>
-          <div>
-            <StarsRating stars={rating.stars} />
+      {rating.length > 0 && (
+        <div className={styles.ratingContainer}>
+          <div className={styles.starContainer}>
+            <p>{ratingAverage >= 4 ? 'Excelente' : 'Bueno'}</p>
+            <div>
+              <StarsRating stars={ratingAverage} />
+            </div>
+          </div>
+          <div className={styles.ratingScoreContainer}>
+            <p>{ratingAverage}</p>
           </div>
         </div>
-        <div className={styles.ratingScoreContainer}>
-          <p>{rating.score}</p>
-        </div>
-      </div>
+      )}
     </section>
   );
 }

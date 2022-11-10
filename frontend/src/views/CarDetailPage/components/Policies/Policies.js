@@ -6,12 +6,20 @@ function Policies({ policies }) {
       <h3 className={styles.title}>Qué tenés que saber</h3>
       <hr className={styles.divider} />
       <div className={styles.container}>
-        {policies.map((policy) => (
-          <article key={policy.title}>
-            <h4 className={styles.policyTitle}>{policy.title}</h4>
-            <p>{policy.description}</p>
-          </article>
-        ))}
+        <article>
+          <h4 className={styles.policyTitle}>{policies?.rules?.title}</h4>
+          <p>{policies?.rules?.description}</p>
+        </article>
+        <article>
+          <h4 className={styles.policyTitle}>{policies?.security?.title}</h4>
+          <p>{policies?.security?.description}</p>
+        </article>
+        <article>
+          <h4 className={styles.policyTitle}>
+            {policies?.cancellation?.title}
+          </h4>
+          <p>{policies?.cancellation?.description}</p>
+        </article>
       </div>
     </section>
   );

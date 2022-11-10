@@ -1,10 +1,10 @@
 import styles from './Description.module.css';
 
-function Description({ description }) {
+function Description({ descriptionTitle, descriptionContent }) {
   return (
     <section className={styles.descriptionContainer}>
-      <h2>{description.title}</h2>
-      <p>{description.content}</p>
+      <h2>{descriptionTitle}</h2>
+      <p>{descriptionContent}</p>
     </section>
   );
 }
