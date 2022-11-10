@@ -8,22 +8,18 @@
 }
 
 .card_layout {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 16px;
-  justify-content: center;
-}
-
-.card_layout > * {
-  height: 100%;
+  grid-auto-rows: 1fr;
+  margin: 0px 8px;
 }
 
 /* DESKTOP */
 
 @media (min-width: 769px) {
   .card_layout {
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
+    margin: 0px 40px;
   }
 }
