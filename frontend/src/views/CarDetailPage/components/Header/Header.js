@@ -11,7 +11,7 @@ function Header({ category, title }) {
   return (
     <header className={styles.headerContainer}>
       <section>
-        <h4>{category}</h4>
+        <h4>{category.title}</h4>
         <h1>{title}</h1>
       </section>
       <div className={styles.backButton} onClick={onClickBack}>

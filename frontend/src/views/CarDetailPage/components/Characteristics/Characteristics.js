@@ -1,43 +1,78 @@
 import styles from './Characteristics.module.css';
 
 const icons = {
-  passengers: <i className="fa-solid fa-person"></i>,
-  suitcases: <i className="fa-solid fa-suitcase"></i>,
   ac: <i className="fa-solid fa-snowflake"></i>,
-  km: <i className="fa-solid fa-road"></i>,
-  door: <i className="fa-solid fa-door-open"></i>,
   car: <i className="fa-solid fa-car"></i>,
+  carryOn: <i className="fa-solid fa-suitcase-rolling"></i>,
+  door: <i className="fa-solid fa-door-open"></i>,
+  km: <i className="fa-solid fa-road"></i>,
+  passengers: <i className="fa-solid fa-person"></i>,
+  suitcase: <i className="fa-solid fa-suitcase"></i>,
 };
 
-function Characteristics({ characteristics }) {
+function Characteristics({ characteristic }) {
   return (
     <section className={styles.characteristicsWrapper}>
       <h3 className={styles.title}>Qué ofrece este lugar?</h3>
       <hr className={styles.divider} />
       <div className={styles.container}>
         <article>
-          <span className={styles.icon}>{icons.passengers}</span>{' '}
-          {characteristics.passengers}
+          <p>
+            <span className={styles.icon}>{icons.passengers}</span>{' '}
+            {characteristic?.passengers}{' '}
+            {characteristic?.passengers > 1 ? 'personas' : 'persona'}
+          </p>
         </article>
         <article>
-          <span className={styles.icon}>{icons.suitcases}</span>{' '}
-          {characteristics.suitcases}
+          <p>
+            <span className={styles.icon}>{icons.suitcase}</span>{' '}
+            {characteristic?.largeBagsCapacity}{' '}
+            {characteristic?.largeBagsCapacity > 1 ? 'Maletas' : 'Maleta'}
+          </p>
         </article>
         <article>
-          <span className={styles.icon}>{icons.ac}</span> {characteristics.ac}
+          <p>
+            <span className={styles.icon}>{icons.carryOn}</span>{' '}
+            {characteristic?.smallBagsCapacity}{' '}
+            {characteristic?.smallBagsCapacity > 1
+              ? 'Equipajes de mano'
+              : 'Equipaje de mano'}
+          </p>
         </article>
+        {characteristic?.ac && (
+          <article>
+            <p>
+              <span className={styles.icon}>{icons.ac}</span> A/C
+            </p>
+          </article>
+        )}
+        {characteristic?.ilimitedKm && (
+          <article>
+            <p>
+              <span className={styles.textIcon}>Km</span> Ilimitado
+            </p>
+          </article>
+        )}
+        {characteristic?.automatic ? (
+          <article>
+            <p>
+              <span className={styles.textIcon}>A</span>
+              Automático
+            </p>
+          </article>
+        ) : (
+          <article>
+            <p>
+              <span className={styles.textIcon}>M</span>
+              Manual
+            </p>
+          </article>
+        )}
         <article>
-          <span className={styles.textIcon}>Km</span> {characteristics.km}
-        </article>
-        <article>
-          <span className={styles.textIcon}>
-            {characteristics.transmission.slice(0, 1)}
-          </span>
-          {characteristics.transmission}
-        </article>
-        <article>
-          <span className={styles.icon}>{icons.car}</span>{' '}
-          {characteristics.doors}
+          <p>
+            <span className={styles.icon}>{icons.car}</span>{' '}
+            {characteristic?.doors} puertas
+          </p>
         </article>
       </div>
     </section>

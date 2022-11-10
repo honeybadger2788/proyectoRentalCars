@@ -1,5 +1,5 @@
 .section {
-  background: rgba(56, 59, 88, 0.1);
+  background: var(--white);
   padding-bottom: 1.1875rem;
 }
 
@@ -8,12 +8,16 @@
 }
 
 .card_layout {
+  align-items: center;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   gap: 16px;
+  justify-content: center;
+}
+
+.card_layout > * {
+  height: 100%;
 }
 
 /* DESKTOP */
