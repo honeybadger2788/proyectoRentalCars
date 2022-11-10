@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 //Endpoint de interaccion con "Categories"
 
@@ -17,15 +18,39 @@ import java.util.List;
 @RequestMapping("/car")
 public class CarController {
 
-    //Inicializo "categoriaService" con todos los metodos implementados
     @Autowired
     ICarService carService;
 
 
-    //Devolver el listado completo de categorias disponibles
-    @GetMapping
-    public List<CarDTO> listCarsController() {
-        return carService.listCars();
+    // //Devolver el listado completo de categorias disponibles
+    // @GetMapping
+    // public List<CarDTO> listCarsController() {
+    //     return carService.listCars();
+    // }
+
+        // @GetMapping("/filter")
+    // public List<CarDTO> getCarsByCategory(@RequestParam String category) {
+    //     return carService.listByCategory(category);
+    // }
+
+    // //Devolver listado de productos por ciudad
+    // @GetMapping("/filter")
+    // public List<CarDTO> getCarsByCity(@RequestParam Integer cityId) {
+    //     return carService.findByCity(cityId);
+    // }
+
+
+    @GetMapping   
+    public List<CarDTO> listCars(@RequestParam(required = false)  String category, @RequestParam(required = false) Integer city){
+        
+        if(category != null){
+            return carService.listByCategory(category);
+        } else if (city != null) {
+            return carService.findByCity(city);
+        } else {
+            return carService.listCarRandom();
+        }
+
     }
 
     @GetMapping("/{id}")
@@ -55,9 +80,5 @@ public class CarController {
         return carService.updateCar(car);
     }
 
-    //Devolver listado de productos por ciudad
-    @GetMapping("/filter")
-    public List<CarDTO> getCarsByCity(@RequestParam Integer cityId) {
-        return carService.findByCity(cityId);
-    }
+
 }

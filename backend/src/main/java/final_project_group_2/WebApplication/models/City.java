@@ -3,7 +3,7 @@ package final_project_group_2.WebApplication.models;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "city")
 public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
