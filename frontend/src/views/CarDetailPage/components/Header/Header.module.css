@@ -1,0 +1,21 @@
+.headerContainer {
+  align-items: center;
+  background-color: var(--secondaryLight);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 8px;
+  width: 100%;
+}
+
+.backButton {
+  cursor: pointer;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .headerContainer {
+    padding: 8px 40px;
+  }
+}

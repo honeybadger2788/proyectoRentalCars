@@ -27,7 +27,7 @@ function Navbar({ hidden, toogleDrawer }) {
           <img
             alt="logo"
             className={styles.logo_image}
-            src={`${process.env.PUBLIC_URL}images/logo-1.svg`}
+            src='https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/logo-1.svg'
           />
           <p className={styles.logo_text}>Sentite como en tu hogar</p>
         </div>

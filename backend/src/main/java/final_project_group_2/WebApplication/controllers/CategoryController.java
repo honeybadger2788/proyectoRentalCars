@@ -5,7 +5,6 @@ import final_project_group_2.WebApplication.dto.CategoryDTO;
 import final_project_group_2.WebApplication.models.Category;
 import final_project_group_2.WebApplication.services.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +13,7 @@ import java.util.List;
 //Endpoint de interaccion con "Categories"
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000", "http://grupo2-frontend.s3-website.us-east-2.amazonaws.com"})
 @RequestMapping("/categories")
 public class CategoryController {
 

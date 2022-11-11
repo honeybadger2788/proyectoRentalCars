@@ -1,9 +1,13 @@
 package final_project_group_2.WebApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "category")
 public class Category {
 
     @Id
@@ -50,4 +54,6 @@ public class Category {
     public void setImage(String image) {
         this.image = image;
     }
+
+
 }
