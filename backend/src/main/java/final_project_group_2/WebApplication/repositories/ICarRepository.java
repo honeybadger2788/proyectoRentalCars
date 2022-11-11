@@ -16,6 +16,9 @@ public interface ICarRepository extends JpaRepository<Car, Integer> {
     @Query("from Car c where c.city.id = ?1 order by c.id")
     List<Car> findByCity(Integer cityId);
 
+    @Query("from Car c where c.category.title = ?1 and c.city.id = ?2")
+    List<Car> findByCityAndCategory(String category, Integer cityId);
+
     @Query("FROM Car c ORDER BY RAND()")
     List<Car> listCarRandom();
 }

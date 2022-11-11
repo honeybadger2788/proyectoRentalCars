@@ -104,4 +104,15 @@ public class CarService implements ICarService {
         }
         return carsDTO;
     }
+    @Override
+    public List<CarDTO> findByCityAndCategory(String category, Integer cityId) {
+        List<CarDTO> carsDTO = new ArrayList<>();
+        List<Car> cars = carRepository.findByCityAndCategory(category, cityId);
+        if (cars.size() > 0) {
+            for (Car car : cars) {
+                carsDTO.add(mapper.convertValue(car, CarDTO.class));
+            }
+        }
+        return carsDTO;
+    }
 }

@@ -11,13 +11,11 @@ function Home() {
 
   const getCity = (data) => {
     setCityFilter(`?city=${data}`)
-    setCategoryFilter(null)
     console.log(data)
   }
 
   const getCategory = (data) => {
     setCategoryFilter(`?category=${data}`)
-    setCityFilter(null)
     console.log(data)
   }
 
