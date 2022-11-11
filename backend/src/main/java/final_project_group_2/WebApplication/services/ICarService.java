@@ -16,4 +16,5 @@ public interface ICarService {
     ResponseEntity<?> updateCar(Car car);
     List<CarDTO> listByCategory(String category);
     List<CarDTO> listCarRandom();
+    List<CarDTO> findByCityAndCategory(String category, Integer city);
 }

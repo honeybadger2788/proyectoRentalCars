@@ -21,32 +21,15 @@ public class CarController {
     @Autowired
     ICarService carService;
 
-
-    // //Devolver el listado completo de categorias disponibles
-    // @GetMapping
-    // public List<CarDTO> listCarsController() {
-    //     return carService.listCars();
-    // }
-
-        // @GetMapping("/filter")
-    // public List<CarDTO> getCarsByCategory(@RequestParam String category) {
-    //     return carService.listByCategory(category);
-    // }
-
-    // //Devolver listado de productos por ciudad
-    // @GetMapping("/filter")
-    // public List<CarDTO> getCarsByCity(@RequestParam Integer cityId) {
-    //     return carService.findByCity(cityId);
-    // }
-
-
     @GetMapping   
     public List<CarDTO> listCars(@RequestParam(required = false)  String category, @RequestParam(required = false) Integer city){
         
-        if(category != null){
+        if(category != null && city == null){
             return carService.listByCategory(category);
-        } else if (city != null) {
+        } else if (city != null && category == null) {
             return carService.findByCity(city);
+        } else if (category != null && city != null){
+            return carService.findByCityAndCategory(category,city);
         } else {
             return carService.listCarRandom();
         }
