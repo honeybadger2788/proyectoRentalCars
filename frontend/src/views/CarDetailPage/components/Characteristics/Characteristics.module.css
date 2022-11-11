@@ -1,0 +1,44 @@
+.title {
+  margin: 8px;
+}
+
+.divider {
+  background-color: var(--primary);
+  border: 0;
+  height: 1px;
+  margin-bottom: 16px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 0px 8px;
+}
+
+.icon {
+  color: var(--primary);
+  margin-right: 8px;
+}
+
+.textIcon {
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 3px;
+  font-size: 10px;
+  margin-right: 8px;
+  padding: 2px 4px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0px 40px;
+  }
+
+  .title {
+    margin: 8px 40px;
+  }
+}

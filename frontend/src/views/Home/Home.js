@@ -1,15 +1,42 @@
+import { useState } from 'react';
 import List from '../../components/List/List';
 import Search from '../../components/SearchLayout/Search/Search';
 import CategoriesLayout from '../../components/CategoriesLayout/CategoriesLayout';
-import cars from '../../mock/cars-mock.json';
+import useFetch from '../../useFetch';
 
 
 function Home() {
+  const [cityFilter, setCityFilter] = useState()
+  const [categoryFilter, setCategoryFilter] = useState()
+
+  const getCity = (data) => {
+    setCityFilter(`?city=${data}`)
+    console.log(data)
+  }
+
+  const getCategory = (data) => {
+    setCategoryFilter(`?category=${data}`)
+    console.log(data)
+  }
+
+  const { data: cars,
+    errorCar } =
+    useFetch(`http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car${cityFilter||categoryFilter||""}`)
+
+  const { data: categories,
+    errorCategory } =
+    useFetch('http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/categories')
+
+  if (errorCar)
+    console.log("errorCar: ",errorCar)
+  else if (errorCategory)
+    console.log("errorCategory: ", errorCategory)
+  
   return (
     <>
-      <Search></Search>
-      <CategoriesLayout/>
-      <List data={cars}>Listado</List>
+      <Search getCity={getCity}></Search>
+      {categories && <CategoriesLayout getCategory={getCategory} categories={categories} />}
+      {cars && <List data={cars }>Listado</List>}
       {/* <h1>h1</h1>
       <h2>h2</h2>
       <h3>h3</h3>

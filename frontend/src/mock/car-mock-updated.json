@@ -1,0 +1,80 @@
+{
+  "id": 7,
+  "category": {
+    "id": 1,
+    "title": "4x4",
+    "description": "Autos para todo terreno",
+    "image": "https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg"
+  },
+  "descriptionTitle": "La nueva nave de General Motors.",
+  "characteristic": {
+    "id": 1,
+    "ac": true,
+    "doors": 4,
+    "passengers": 4,
+    "largeBagsCapacity": 2,
+    "smallBagsCapacity": 2,
+    "ilimitedKm": true,
+    "automatic": true,
+    "size": "Medium"
+  },
+  "descriptionContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus.",
+  "city": {
+    "id": 1,
+    "name": "Buenos Aires",
+    "state": "CABA",
+    "zipCode": "1019",
+    "longitude": null,
+    "latitude": null
+  },
+  "ratingTitle": "El mejor auto del mundo",
+  "ratingStars": 4,
+  "ratingScore": 4,
+  "title": "Chevrolet Cruze",
+  "images": [
+    {
+      "id": 1,
+      "title": "A super cool car",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-1.webp"
+    },
+    {
+      "id": 2,
+      "title": "The side of the car",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-2.webp"
+    },
+    {
+      "id": 3,
+      "title": "The front of the car",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-3.webp"
+    },
+    {
+      "id": 4,
+      "title": "The rear part of the car",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-4.webp"
+    },
+    {
+      "id": 5,
+      "title": "A close up of the car",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-6.webp"
+    },
+    {
+      "id": 6,
+      "title": "Another photo",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-6.webp"
+    }
+  ],
+  "policies": {
+    "rules": {
+      "title": "Política de tanque",
+      "description": "El tanque se entrega lleno, y debe devolver el auto con el tanque lleno también."
+    },
+    "security": {
+      "title": "Seguridad y cobertura de seguro",
+      "description": "Cobertura por daño y robo con franquicia de ARS 650000. Seguro de responsabilidad civil."
+    },
+    "cancellation": {
+      "title": "Política de cancelación",
+      "description": "Cancelación hasta 24 horas antes del retiro"
+    }
+  }
+}

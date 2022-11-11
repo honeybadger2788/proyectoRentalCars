@@ -1,0 +1,23 @@
+.descriptionContainer {
+  margin: 0px 8px;
+}
+
+.descriptionContainer > h2 {
+  margin-bottom: 8px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .descriptionContainer {
+    margin: 0px 40px;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) and (min-width: 425px) {
+  .descriptionContainer {
+    margin: 0px 40px;
+  }
+}

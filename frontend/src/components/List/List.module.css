@@ -1,5 +1,5 @@
 .section {
-  background: rgba(56, 59, 88, 0.1);
+  background: var(--white);
   padding-bottom: 1.1875rem;
 }
 
@@ -8,18 +8,18 @@
 }
 
 .card_layout {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 16px;
+  grid-auto-rows: 1fr;
+  margin: 0px 8px;
 }
 
 /* DESKTOP */
 
 @media (min-width: 769px) {
   .card_layout {
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
+    margin: 0px 40px;
   }
 }
