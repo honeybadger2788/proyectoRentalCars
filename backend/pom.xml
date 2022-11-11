@@ -7,7 +7,10 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> f6d2dbfec995f7072b2914d33f5067514fb6d1ac
 	</parent>
 	<groupId>final_project_group_2</groupId>
 	<artifactId>WebApplication</artifactId>
@@ -32,6 +35,14 @@
 			<version>2.14.0-rc1</version>
 		</dependency>
 		<dependency>
+<<<<<<< HEAD
+=======
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+>>>>>>> f6d2dbfec995f7072b2914d33f5067514fb6d1ac
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -47,6 +58,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -61,6 +73,8 @@
 		</dependency>
 
 
+=======
+>>>>>>> f6d2dbfec995f7072b2914d33f5067514fb6d1ac
 	</dependencies>
 
 	<build>
@@ -70,7 +84,10 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+<<<<<<< HEAD
 		<finalName>Grupo2-Backend</finalName>
+=======
+>>>>>>> f6d2dbfec995f7072b2914d33f5067514fb6d1ac
 	</build>
 
 </project>
