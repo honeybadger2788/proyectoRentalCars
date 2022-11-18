@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -44,12 +45,13 @@ public class Car extends ProductAbstract{
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
-            }
+            },
+            fetch = FetchType.EAGER
     )
     @JoinTable(name = "car_policy",
             joinColumns = @JoinColumn(name = "carId"),
             inverseJoinColumns = @JoinColumn(name = "policyId"))
-    private Set<Policy> policies;
+    private Set<Policy> policies = new HashSet<>();
     
 
     public Car() {
@@ -62,6 +64,7 @@ public class Car extends ProductAbstract{
         this.descriptionContent = descriptionContent;
         this.city = city;
         this.title = title;
+
     }
 
     public Integer getId() {
