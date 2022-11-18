@@ -1,6 +1,9 @@
 package final_project_group_2.WebApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,8 +16,9 @@ public class Policy {
     private String title;
     private String description;
 
-    @ManyToMany(mappedBy = "policies")
-    public Set<Car> cars;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "policies", fetch = FetchType.EAGER)
+    public Set<Car> cars = new HashSet<>();
 
     public Policy(){
 
