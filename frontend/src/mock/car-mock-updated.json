@@ -1,14 +1,14 @@
 {
-  "id": 7,
+  "id": 19,
   "category": {
-    "id": 1,
-    "title": "4x4",
-    "description": "Autos para todo terreno",
-    "image": "https://res.cloudinary.com/dk5hasdld/image/upload/v1666380861/CarImage_bowhcb.jpg"
+    "id": 34,
+    "title": "Familiar",
+    "description": "Vehículo ideal para difrutar en familia",
+    "image": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/category/family.png"
   },
-  "descriptionTitle": "La nueva nave de General Motors.",
+  "descriptionTitle": "Para tu viaje en familia.",
   "characteristic": {
-    "id": 1,
+    "id": 11,
     "ac": true,
     "doors": 4,
     "passengers": 4,
@@ -18,49 +18,68 @@
     "automatic": true,
     "size": "Medium"
   },
-  "descriptionContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet varius nulla. Sed commodo sagittis odio, id blandit nulla. Nam et felis molestie, mollis sapien eu, lobortis elit. Praesent sollicitudin, nisl nec interdum mattis, lacus felis bibendum purus, et blandit turpis quam sed metus. Curabitur placerat risus nec magna fringilla faucibus. Etiam vitae faucibus elit. Vestibulum at tempus eros. Morbi vulputate euismod libero ac volutpat. Cras a est ac odio auctor tristique a nec risus.",
+  "descriptionContent": "Loremp ipsum",
   "city": {
-    "id": 1,
-    "name": "Buenos Aires",
-    "state": "CABA",
-    "zipCode": "1019",
+    "id": 7,
+    "name": "Córdoba",
+    "state": "Córdoba",
+    "zipCode": "5000",
     "longitude": null,
     "latitude": null
   },
-  "ratingTitle": "El mejor auto del mundo",
-  "ratingStars": 4,
-  "ratingScore": 4,
-  "title": "Chevrolet Cruze",
+  "rating": [
+    {
+      "id": 19,
+      "userId": 2,
+      "score": 5
+    },
+    {
+      "id": 22,
+      "userId": null,
+      "score": 5
+    },
+    {
+      "id": 17,
+      "userId": 2,
+      "score": 2
+    },
+    {
+      "id": 18,
+      "userId": 2,
+      "score": 3
+    },
+    {
+      "id": 20,
+      "userId": 2,
+      "score": 4
+    }
+  ],
+  "title": "Toyota Corolla Cross",
   "images": [
     {
-      "id": 1,
-      "title": "A super cool car",
-      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-1.webp"
+      "id": 30,
+      "title": "Buenos Aires",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/corolla-cross-3.webp"
     },
     {
-      "id": 2,
-      "title": "The side of the car",
-      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-2.webp"
+      "id": 32,
+      "title": "Buenos Aires",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/corolla-cross-1.webp"
     },
     {
-      "id": 3,
-      "title": "The front of the car",
-      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-3.webp"
+      "id": 29,
+      "title": "Buenos Aires",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/corolla-cross-4.webp"
     },
     {
-      "id": 4,
-      "title": "The rear part of the car",
-      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-4.webp"
+      "id": 33,
+      "title": "Buenos Aires",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/corolla-cross-6.jpg"
     },
     {
-      "id": 5,
-      "title": "A close up of the car",
-      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-6.webp"
-    },
-    {
-      "id": 6,
-      "title": "Another photo",
-      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/amarok-6.webp"
+      "id": 31,
+      "title": "Buenos Aires",
+      "url": "https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/corolla-cross-2.webp"
     }
   ],
   "policies": {

@@ -2,13 +2,13 @@ import { useParams } from 'react-router-dom';
 
 import useFetch from '../../useFetch';
 
-import Calendar from './components/Calendar/Calendar';
-import Characteristics from './components/Characteristics/Characteristics';
-import Description from './components/Description/Description';
-import Header from './components/Header/Header';
-import Images from './components/Images/Images';
-import Location from './components/Location/Location';
-import Policies from './components/Policies/Policies';
+import Calendar from '../../components/Calendar/Calendar';
+import Characteristics from '../../components/Characteristics/Characteristics';
+import Description from '../../components/Description/Description';
+import Header from '../../components/Header/Header';
+import Images from '../../components/Images/Images';
+import Location from '../../components/Location/Location';
+import Policies from '../../components/Policies/Policies';
 
 import styles from './CarDetailPage.module.css';
 
