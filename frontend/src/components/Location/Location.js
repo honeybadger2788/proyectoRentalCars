@@ -1,4 +1,4 @@
-import StarsRating from '../../../../components/StarsRating/StarsRating';
+import StarsRating from '../StarsRating/StarsRating';
 
 import styles from './Location.module.css';
 
