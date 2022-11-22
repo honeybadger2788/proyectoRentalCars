@@ -38,9 +38,9 @@ function Calendar() {
       <div className={styles.container}>
         <DateRange
           className={styles.calendar}
-          direction={windowWidth < 425 ? 'vertical' : 'horizontal'}
+          direction={windowWidth < 750 ? 'vertical' : 'horizontal'}
           editableDateInputs={true}
-          months={windowWidth < 425 ? 1 : 2}
+          months={windowWidth < 750 ? 1 : 2}
           moveRangeOnFirstSelection={false}
           ranges={range}
           onChange={(item) => setRange([item.selection])}
