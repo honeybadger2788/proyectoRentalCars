@@ -27,7 +27,7 @@ build_frontend:
       - ./frontend/package.json
 
 build_backend:
-  image: maven:3.3.9-jdk-8
+  image: maven:3.8.3-openjdk-17
   stage: build_backend
   allow_failure: false
   script:
