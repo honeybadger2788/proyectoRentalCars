@@ -2,22 +2,32 @@ package final_project_group_2.WebApplication.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import final_project_group_2.WebApplication.dto.UserDTO;
+import final_project_group_2.WebApplication.models.City;
 import final_project_group_2.WebApplication.models.User;
 import final_project_group_2.WebApplication.repositories.IUserRepository;
 import final_project_group_2.WebApplication.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UserService implements IUserService {
+@Transactional
+public class UserService implements IUserService, UserDetailsService {
 
     @Autowired
     IUserRepository userRepository;
+
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     ObjectMapper mapper;
@@ -34,7 +44,14 @@ public class UserService implements IUserService {
 
     @Override
     public ResponseEntity<?> addUser(User newUser) {
-        if (userRepository.save(newUser) != null) return ResponseEntity.ok(HttpStatus.OK);
+        var user = new User();
+        user.setFirstName(newUser.getFirstName());
+        user.setLastName(newUser.getLastName());
+        user.setEmail(newUser.getEmail());
+        user.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        user.setCity(newUser.getCity());
+        user.setRole(newUser.getRole());
+        if (userRepository.save(user) != null) return ResponseEntity.ok(HttpStatus.OK);
         return (ResponseEntity<?>) ResponseEntity.internalServerError();
     }
 
@@ -65,5 +82,12 @@ public class UserService implements IUserService {
         }else{
             return new ResponseEntity("El usuario con id " + userToUpdate.getId() + " no existe.", HttpStatus.NOT_FOUND);
         }
+    }
+
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByEmail(username).orElseThrow((()-> new UsernameNotFoundException("User Not Found")));
     }
 }
