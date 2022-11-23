@@ -53,8 +53,7 @@ public class User implements UserDetails {
 
     }
 
-    public User(Integer id, String firstName, String lastName, String email, String password, City city, Role role,
-            Set<Booking> bookings) {
+    public User(Integer id, String firstName, String lastName, String email, String password, City city, Role role) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -62,7 +61,6 @@ public class User implements UserDetails {
         this.password = password;
         this.city = city;
         this.role = role;
-        this.bookings = bookings;
     }
 
     public Integer getId() {

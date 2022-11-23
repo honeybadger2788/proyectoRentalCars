@@ -18,8 +18,8 @@ public class RoleService implements IRoleService{
 
     @Override
     public ResponseEntity<?> addRole(Role newRole) {
-        if (roleRepository.save(newRole) != null) return ResponseEntity.ok(HttpStatus.OK);
-        return (ResponseEntity<?>) ResponseEntity.internalServerError();
+        if (roleRepository.save(newRole) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @Override

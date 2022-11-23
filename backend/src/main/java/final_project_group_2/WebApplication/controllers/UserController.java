@@ -7,6 +7,7 @@ import final_project_group_2.WebApplication.models.User;
 import final_project_group_2.WebApplication.services.IUserService;
 import final_project_group_2.WebApplication.services.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -37,6 +38,10 @@ public class UserController {
         return userService.listUsers();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getCarById(@PathVariable int id) {
+        return userService.findById(id);
+    }
 
     //Agregar un usuario
     @PostMapping("/signup")
@@ -45,7 +50,7 @@ public class UserController {
         final UserDetails userDetails = userService.loadUserByUsername(user.getUsername());
         final String jwt = jwtUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new AuthenticationResponse(jwt));
+        return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.CREATED);
     }
 
 
