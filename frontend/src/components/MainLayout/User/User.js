@@ -1,30 +1,33 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from 'react';
 //import { useNavigate } from 'react-router-dom';
-import styles from './User.module.css'
 
-export default function User(props) {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
+import { useLogout } from '../../../hooks/useLogout';
 
+import styles from './User.module.css';
 
-    const onClickLogout = () => {
-        sessionStorage.clear()
-        window.location.reload() //Dudoso
-    }
+export default function User({ user }) {
+  const { logout } = useLogout();
 
-    useEffect(() => {
-        if (props.user) {
-            setFirstName(props.user.firstName)
-            setLastName(props.user.lastName)
-        }
-    }, [props.user])
-    
+  const onClickLogout = () => {
+    logout();
+  };
 
-    return (
-        <div className={styles.container}>
-            <div className={styles.avatar}><h2 className={styles.h2}>{firstName[0]+lastName[0]}</h2></div>
-            <h3 className={styles.h3}>Hola, <button className={styles.userBtn}>{firstName + ' ' + lastName}</button></h3>
-            <h3 className={styles.close} onClick={onClickLogout}>x</h3>
-        </div>
-    )
-  }
+  return (
+    <div className={styles.container}>
+      <div className={styles.avatar}>
+        <h2 className={styles.h2}>
+          {user.firstName.slice(0, 1) + user.lastName.slice(0, 1)}
+        </h2>
+      </div>
+      <h3 className={styles.h3}>
+        Hola,{' '}
+        <button className={styles.userBtn}>
+          {user.firstName + ' ' + user.lastName}
+        </button>
+      </h3>
+      <h3 className={styles.close} onClick={onClickLogout}>
+        x
+      </h3>
+    </div>
+  );
+}
