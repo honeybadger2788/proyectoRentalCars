@@ -1,34 +1,29 @@
 import React, { useState } from "react"
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from "react-router-dom";
+import {useLogin} from '../../hooks/useLogin';
 import styles from './Login.module.css'
 
 export default function Login() {
     const navigate = useNavigate()
+    const { login, error, isLoading } = useLogin();
     const [wrongCredentials, setWrongCredentials] = useState(false)
     const { register, reset ,formState: { errors }, handleSubmit } = useForm();
     
-    const user = {
-        firstName: 'Horacio',
-        lastName: 'Test',
-        email: 'test@test.com',
-        password: '123456'
-    }
-
-    const onSubmit = data => {
-        if (user.email === data.email && user.password === data.password) {
+    const onSubmit = async (data) => {
+        await login(data.username, data.password);
+        if (!error) {
             setWrongCredentials(false)
             reset()
-            sessionStorage.setItem('userLoggedIn', true)
-            sessionStorage.setItem('user', JSON.stringify(user))
             navigate('/')
-            window.location.reload() //Dudoso
         }
-        else setWrongCredentials(true)
+        // no funciona el envio de errores
+        if(error) console.log(error)
     }
 
     return (
         <div>
+            {isLoading && <p>Loading...</p>}
             <h1 className={styles.title}>Iniciar sesión</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 {wrongCredentials && <p className={styles.error}>Por favor vuelva a intentarlo, sus credenciales son inválidas</p>}           
@@ -36,9 +31,9 @@ export default function Login() {
                     <label htmlFor='email'>Correo electrónico</label>
                     <input id='email'
                         type='email'
-                        name='email'
-                        className={errors.email||wrongCredentials ? styles.error : undefined }
-                        {...register('email',
+                        name='username'
+                        className={errors.username||wrongCredentials ? styles.error : undefined }
+                        {...register('username',
                             {
                                 required: { value: true, message: 'Campo obligatorio' },
                                 pattern: {
@@ -46,7 +41,7 @@ export default function Login() {
                                     message: 'Ingrese un mail válido'
                                 }
                             })} />
-                    <p className={styles.error}>{errors.email && errors.email.message}</p>
+                    <p className={styles.error}>{errors.username && errors.username.message}</p>
                 </div>
 
                 <div className={styles.container}>
@@ -57,8 +52,7 @@ export default function Login() {
                         className={errors.password||wrongCredentials ? styles.error : undefined}
                         {...register('password',
                             {
-                                required: {value: true, message: 'Campo obligatorio'},
-                                minLength: { value: 6, message: 'La contraseña debe tener al menos 6 caracteres' }
+                                required: {value: true, message: 'Campo obligatorio'}
                             })} />
                     <p className={styles.error}>{errors.password && errors.password.message}</p>
                 </div>

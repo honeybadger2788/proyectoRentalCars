@@ -6,24 +6,25 @@ export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
-  const login = async (email, password) => {
+  const login = async (username, password) => {
     setIsLoading(true);
     setError(null);
 
     const response = await fetch(
-      'http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/users/login',
+      'http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/login',
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ username, password }),
       }
     );
 
     const json = await response.json();
 
+
     if (!response.ok) {
       setIsLoading(false);
-      setError(json.error);
+      setError("Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde");
     }
 
     if (response.ok) {

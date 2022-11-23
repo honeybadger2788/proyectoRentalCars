@@ -15,7 +15,7 @@ export const useSignup = () => {
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email, password }),
+        body: JSON.stringify({ firstName, lastName, email, password, city: { id: 1 }, role: { id: 1 } }),
       }
     );
 
@@ -23,7 +23,7 @@ export const useSignup = () => {
 
     if (!response.ok) {
       setIsLoading(false);
-      setError(json.error);
+      setError("Lamentablemente no ha podido registrarse. Por favor intente más tarde");
     }
 
     if (response.ok) {

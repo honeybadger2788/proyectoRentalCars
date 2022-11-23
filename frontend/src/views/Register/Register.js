@@ -21,7 +21,10 @@ export default function Register() {
   const onSubmit = async (data) => {
     if (data.password === data.confirmPassword) {
       await signup(data.firstName, data.lastName, data.email, data.password);
+      reset()
+      // no funciona el envio de errores
       if (error) {
+        setSignupError(true)
         setErrorMessage(error);
       }
       if (!error) navigate('/');
