@@ -49,9 +49,13 @@ deploy_frontend:
     - pip install awscli
     - aws s3 sync ./frontend/build s3://$grupo2-frontend --acl public-read
   dependencies:
-    - build_backend
+    - build_frontend
   only:
-    - development
+    refs:
+      - development
+    changes:
+      - ./frontend/src/**/*
+      - ./frontend/package.json
 
 deploy_backend:
   image: python:latest
@@ -67,4 +71,8 @@ deploy_backend:
   dependencies:
     - build_backend
   only:
-    - development
+    refs:
+      - development
+    changes:
+      - ./backend/src/**/*
+      - ./backend/pom.xml
