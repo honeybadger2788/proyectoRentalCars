@@ -9,6 +9,7 @@ build_frontend:
   stage: build_frontend
   allow_failure: false
   script:
+    - cd ./frontend
     # Set PATH
     - export PATH=$PATH:/usr/bin/npm
     # Install dependencies
