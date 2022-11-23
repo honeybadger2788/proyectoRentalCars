@@ -1,7 +1,10 @@
 package final_project_group_2.WebApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 
@@ -31,14 +34,14 @@ public class Car extends ProductAbstract{
     private City city;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value="rating-relation")
     private Set<Rating> rating;
 
     private String title;
 
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value="image-relation")
     private Set<Image> images;
 
     @ManyToMany(
@@ -52,6 +55,10 @@ public class Car extends ProductAbstract{
             joinColumns = @JoinColumn(name = "carId"),
             inverseJoinColumns = @JoinColumn(name = "policyId"))
     private Set<Policy> policies = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
+    @JsonManagedReference(value="booking-relation")
+    private Set<Booking> bookings;
     
 
     public Car() {
@@ -64,7 +71,6 @@ public class Car extends ProductAbstract{
         this.descriptionContent = descriptionContent;
         this.city = city;
         this.title = title;
-
     }
 
     public Integer getId() {
@@ -147,4 +153,13 @@ public class Car extends ProductAbstract{
     public void setPolicies(Set<Policy> policies) {
         this.policies = policies;
     }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
 }
