@@ -9,6 +9,18 @@
     flex-direction: column;
 }
 
+input.error {
+    background: #FFE1E1;
+    border: 1px solid var(--error);
+}
+
+p.error {
+    color: var(--error);
+    font-size: 0.75rem;
+    line-height: 14px;
+    text-align: right;
+}
+
 /* DESKTOP */
 
 @media (min-width: 768px) {

@@ -1,10 +1,17 @@
 package final_project_group_2.WebApplication.controllers;
 
 import final_project_group_2.WebApplication.dto.UserDTO;
+import final_project_group_2.WebApplication.jwt.JwtUtil;
+import final_project_group_2.WebApplication.models.AuthenticationResponse;
 import final_project_group_2.WebApplication.models.User;
 import final_project_group_2.WebApplication.services.IUserService;
+import final_project_group_2.WebApplication.services.impl.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +22,14 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    IUserService userService;
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
 
     //Devolver el listado completo de usuarios
     @GetMapping
@@ -27,8 +41,11 @@ public class UserController {
     //Agregar un usuario
     @PostMapping("/signup")
     public ResponseEntity<?> addUser(@RequestBody User user){
+        userService.addUser(user);
+        final UserDetails userDetails = userService.loadUserByUsername(user.getUsername());
+        final String jwt = jwtUtil.generateToken(userDetails);
 
-        return userService.addUser(user);
+        return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 
 
