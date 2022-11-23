@@ -4,6 +4,10 @@ stages:
   - deploy_frontend
   - deploy_backend
 
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "development"
+
 build_frontend:
   image: node:latest
   stage: build_frontend
@@ -20,8 +24,6 @@ build_frontend:
     paths:
       - ./frontend/build/
   only:
-    refs:
-      - development
     changes:
       - ./frontend/src/**/*
       - ./frontend/package.json
@@ -37,8 +39,6 @@ build_backend:
     paths:
       - ./backend/target/Grupo2-Backend.jar
   only:
-    refs:
-      - development
     changes:
       - ./backend/src/**/*
       - ./backend/pom.xml
@@ -52,8 +52,6 @@ deploy_frontend:
   dependencies:
     - build_frontend
   only:
-    refs:
-      - development
     changes:
       - ./frontend/src/**/*
       - ./frontend/package.json
@@ -72,8 +70,6 @@ deploy_backend:
   dependencies:
     - build_backend
   only:
-    refs:
-      - development
     changes:
       - ./backend/src/**/*
       - ./backend/pom.xml
