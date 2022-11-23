@@ -1,8 +1,10 @@
 package final_project_group_2.WebApplication.jwt;
 
+import final_project_group_2.WebApplication.services.impl.UserDetailsImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -40,9 +42,10 @@ public class JwtUtil {
                 .getBody();
     }
 
-    public String generateToken(UserDetails userDetails){
+    public String generateToken(Authentication authentication){
+        UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
         Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userDetails.getUsername());
+        return createToken(claims, userPrincipal.getUsername());
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
