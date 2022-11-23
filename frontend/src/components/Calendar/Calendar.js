@@ -7,7 +7,7 @@ import 'react-date-range/dist/theme/default.css';
 
 import styles from './Calendar.module.css';
 
-function Calendar() {
+function Calendar({ disabledDates }) {
   // date state
   const [range, setRange] = useState([
     {
@@ -40,6 +40,7 @@ function Calendar() {
           className={styles.calendar}
           direction={windowWidth < 750 ? 'vertical' : 'horizontal'}
           editableDateInputs={true}
+          minDate={new Date()}
           months={windowWidth < 750 ? 1 : 2}
           moveRangeOnFirstSelection={false}
           ranges={range}
