@@ -25,7 +25,7 @@ public class UserController {
 
 
     //Agregar un usuario
-    @PostMapping("/add")
+    @PostMapping("/signup")
     public ResponseEntity<?> addUser(@RequestBody User user){
 
         return userService.addUser(user);

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from 'react-hook-form'
 import styles from './Register.module.css'
 
 export default function Register() {
