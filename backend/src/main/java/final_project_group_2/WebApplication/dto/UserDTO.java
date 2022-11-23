@@ -1,6 +1,11 @@
 package final_project_group_2.WebApplication.dto;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import final_project_group_2.WebApplication.models.Booking;
 import final_project_group_2.WebApplication.models.City;
 import final_project_group_2.WebApplication.models.Role;
 
@@ -21,9 +26,8 @@ public class UserDTO {
 
     Role role;
 
-   /* @JsonIgnore
 
-    private Set<Booking> bookings = new HashSet<>();*/
+    private Set<Booking> bookings;
 
     public UserDTO(){
 
@@ -84,4 +88,13 @@ public class UserDTO {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
 }

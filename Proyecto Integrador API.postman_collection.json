@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "a30d6e3c-3db0-49f5-9a5a-51556977d633",
+		"_postman_id": "361dfc76-0145-4fc4-8e30-4a8f78682818",
 		"name": "Proyecto Integrador API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18542893"
+		"_exporter_id": "18745225"
 	},
 	"item": [
 		{
@@ -114,6 +114,121 @@
 							],
 							"path": [
 								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "Agregar ciudad",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1019,\r\n    \"latitude\": \"34°35′59″S\",\r\n    \"longitude\": \"58°22′55″O\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar ciudad",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/delete/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar ciudad",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1016\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/cities/update",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista ciudades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/cities",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"cities"
 							]
 						}
 					},
@@ -295,121 +410,6 @@
 									"key": "category",
 									"value": "\"Carros\""
 								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "City",
-			"item": [
-				{
-					"name": "Agregar ciudad",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1019,\r\n    \"latitude\": \"34°35′59″S\",\r\n    \"longitude\": \"58°22′55″O\"\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/cities/add",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"cities",
-								"add"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Eliminar ciudad",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/cities/delete/1",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"cities",
-								"delete",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Actualizar ciudad",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Buenos Aires\",\r\n    \"state\": \"CABA\",\r\n    \"zipCode\": 1016\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseURL}}/cities/update",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"cities",
-								"update"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Obtener lista ciudades",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseURL}}/cities",
-							"host": [
-								"{{baseURL}}"
-							],
-							"path": [
-								"cities"
 							]
 						}
 					},
@@ -980,6 +980,55 @@
 							],
 							"path": [
 								"policies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Agregar reserva",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"startDate\":\"2022-10-17\",\r\n    \"endDate\":\"2022-11-17\",\r\n    \"time\":\"20:05:55\",\r\n    \"car\":{\"id\":1}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/booking/add",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener lista de reservas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/booking",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"booking"
 							]
 						}
 					},

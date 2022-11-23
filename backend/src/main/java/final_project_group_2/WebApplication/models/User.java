@@ -1,8 +1,14 @@
 package final_project_group_2.WebApplication.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import java.util.HashSet;
+import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,7 +19,7 @@ import java.util.Collections;
 
 
 @Entity
-@Table
+@Table(name = "users")
 public class User implements UserDetails {
 
     @Id
@@ -37,27 +43,32 @@ public class User implements UserDetails {
     @JoinColumn(name = "roleId")
     Role role;
 
-   /* @JsonIgnore
+
     @OneToMany(cascade = CascadeType.MERGE)
     @JoinColumn(name = "users_id")
-    private Set<Booking> bookings = new HashSet<>();*/
+    @JsonManagedReference(value="user-relation")
+    private Set<Booking> bookings;
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String email, String password, City city, Role role) {
+    public User(Integer id, String firstName, String lastName, String email, String password, City city, Role role,
+            Set<Booking> bookings) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.city = city;
         this.role = role;
+        this.bookings = bookings;
     }
 
     public Integer getId() {
         return id;
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -137,13 +148,14 @@ public class User implements UserDetails {
     public void setRole(Role role) {
         this.role = role;
     }
-/*
+
     public Set<Booking> getBookings() {
         return bookings;
     }
 
     public void setBookings(Set<Booking> bookings) {
         this.bookings = bookings;
-    }*/
+    }
+
 }
 
