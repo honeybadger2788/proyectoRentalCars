@@ -12,6 +12,7 @@ import ReservationSuccess from './views/Reservation/ReservationSuccess.js';
 import './styles/style.css';
 
 function App() {
+  console.log("Testing pipeline")
   return (
     <div>
       <Routes>
