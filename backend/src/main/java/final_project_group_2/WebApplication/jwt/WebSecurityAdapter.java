@@ -33,6 +33,7 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/login",
                         "/cities/**",
+                        "/",
                         "/roles/**",
                         "/users/**",
                         "/car/**",
