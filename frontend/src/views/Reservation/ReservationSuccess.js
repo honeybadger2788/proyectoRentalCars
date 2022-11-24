@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import styles from './ReservationSuccess.module.css';
 
 function ReservationSuccess() {
@@ -12,7 +14,9 @@ function ReservationSuccess() {
         </div>
         <h2>¡Muchas gracias!</h2>
         <p>Su reserva se ha realizado con éxito</p>
-        <button>OK</button>
+        <Link to="/">
+          <button>OK</button>
+        </Link>
       </div>
     </section>
   );
