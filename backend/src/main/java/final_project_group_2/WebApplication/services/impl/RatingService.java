@@ -44,8 +44,8 @@ public class RatingService implements IRatingService {
 
     @Override
     public ResponseEntity<?> addRating(Rating newRating) {
-        if (ratingRepository.save(newRating) != null) return ResponseEntity.ok(HttpStatus.OK);
-        return (ResponseEntity<?>) ResponseEntity.internalServerError();
+        if (ratingRepository.save(newRating) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @Override

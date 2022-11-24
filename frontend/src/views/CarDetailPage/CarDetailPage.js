@@ -49,7 +49,7 @@ function CarDetailPage() {
           />
           <Characteristics characteristic={car.characteristic} />
           <Policies policies={carMock.policies} />
-          <Calendar />
+          <Calendar id= {id}/>
         </section>
       )}
     </>

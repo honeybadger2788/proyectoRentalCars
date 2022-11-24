@@ -8,6 +8,7 @@ import Login from './views/Login/Login';
 import Register from './views/Register/Register';
 import Reservation from './views/Reservation/Reservation.js';
 import ReservationSuccess from './views/Reservation/ReservationSuccess.js';
+import { RequireAuth } from './components/RequireAuth.js';
 
 import './styles/style.css';
 
@@ -20,7 +21,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="product/:id" element={<CarDetailPage />} />
-          <Route path="product/:id/reservation" element={<Reservation />} />
+          <Route path="product/:id/reservation" element={<RequireAuth><Reservation /></RequireAuth>} />
           <Route
             path="product/reservation-success"
             element={<ReservationSuccess />}

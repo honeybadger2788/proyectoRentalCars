@@ -1,22 +1,19 @@
 package final_project_group_2.WebApplication.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import final_project_group_2.WebApplication.dto.CityDTO;
 import final_project_group_2.WebApplication.dto.BookingDTO;
 import final_project_group_2.WebApplication.models.Booking;
-import final_project_group_2.WebApplication.models.Image;
 import final_project_group_2.WebApplication.repositories.IBookingRepository;
-import final_project_group_2.WebApplication.repositories.IImageRepository;
 import final_project_group_2.WebApplication.services.IBookingService;
-import final_project_group_2.WebApplication.services.IImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class BookingService implements IBookingService {
@@ -39,8 +36,18 @@ public class BookingService implements IBookingService {
 
     @Override
     public ResponseEntity<?> addNewBooking(Booking newBooking) {
-        if (bookingRepository.save(newBooking) != null) return ResponseEntity.ok(HttpStatus.OK);
-        return (ResponseEntity<?>) ResponseEntity.internalServerError();
+        if (bookingRepository.save(newBooking) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    @Override
+    public Set<BookingDTO> listByUserId(Integer userId){
+        Set<BookingDTO> setBookings = new HashSet<>();
+        List<Booking> bookings = bookingRepository.findByUserId(userId);
+        for (Booking booking : bookings) {
+            setBookings.add(mapper.convertValue(booking, BookingDTO.class));
+        }
+        return setBookings;
     }
 
     // @Override

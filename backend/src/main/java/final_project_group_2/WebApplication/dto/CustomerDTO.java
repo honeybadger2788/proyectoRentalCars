@@ -1,17 +1,14 @@
 package final_project_group_2.WebApplication.dto;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import final_project_group_2.WebApplication.models.Booking;
 import final_project_group_2.WebApplication.models.City;
 import final_project_group_2.WebApplication.models.Role;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class UserDTO {
+import java.util.Set;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class CustomerDTO {
     private Integer id;
 
     String firstName;
@@ -26,9 +23,12 @@ public class UserDTO {
 
     Role role;
 
-    public UserDTO(){
 
-    };
+    private Set<BookingDTO> bookings;
+
+    public CustomerDTO(){
+
+    }
 
     public Integer getId() {
         return id;
@@ -86,5 +86,11 @@ public class UserDTO {
         this.role = role;
     }
 
+    public Set<BookingDTO> getBookings() {
+        return bookings;
+    }
 
+    public void setBookings(Set<BookingDTO> bookings) {
+        this.bookings = bookings;
+    }
 }
