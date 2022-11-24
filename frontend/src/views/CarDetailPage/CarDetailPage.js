@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import useFetch from '../../useFetch';
 
@@ -49,7 +49,19 @@ function CarDetailPage() {
           />
           <Characteristics characteristic={car.characteristic} />
           <Policies policies={carMock.policies} />
-          <Calendar id= {id}/>
+
+          <div className={styles.calendarContainer}>
+            <div>
+              <h3>Fechas disponibles</h3>
+              <Calendar />
+            </div>
+            <div className={styles.reserve}>
+              <p>Agregá tus fechas de viaje para obtener precios exactos</p>
+              <Link to={`reservation`}>
+                <button>Iniciar reserva</button>
+              </Link>
+            </div>
+          </div>
         </section>
       )}
     </>
