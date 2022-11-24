@@ -15,7 +15,7 @@ export const useSignup = () => {
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email, password, city: { id: 1 }, role: { id: 1 } }),
+        body: JSON.stringify({ firstName, lastName, email, password, city: { id: 4 }, role: { id: 1 } }),
       }
     );
 
