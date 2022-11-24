@@ -132,7 +132,7 @@ function Reservation() {
 
       if (response.ok) {
         setIsBookingLoading(false);
-        navigate('product/reservation-success');
+        navigate('/product/reservation-success');
       }
     } catch (err) {
       console.log(err);
