@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import { Link, useParams } from 'react-router-dom';
 import { addDays } from 'date-fns';
 import { DateRange } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
@@ -7,7 +7,7 @@ import 'react-date-range/dist/theme/default.css';
 
 import styles from './Calendar.module.css';
 
-function Calendar({ disabledDates }) {
+function Calendar({id,disabledDates,}) {
   // date state
   const [range, setRange] = useState([
     {
@@ -50,7 +50,9 @@ function Calendar({ disabledDates }) {
         />
         <div className={styles.reserve}>
           <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-          <button>Iniciar reserva</button>
+          <button>
+            <Link to={`/product/${id}/reservation`}>Iniciar reserva</Link>
+          </button>
         </div>
       </div>
     </section>
