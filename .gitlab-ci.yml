@@ -51,7 +51,7 @@ deploy_frontend:
     - aws configure set aws_access_key_id $AWS_ACCESS_ID
     - aws configure set aws_secret_access_key $AWS_SECRET_KEY
     - aws configure set region us-east-2
-    - aws s3 sync ./frontend/build s3://$grupo2-frontend --acl public-read
+    - aws s3 sync ./frontend/build s3://grupo2-frontend --acl public-read
   dependencies:
     - build_frontend
   rules:
