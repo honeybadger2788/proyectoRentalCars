@@ -12,9 +12,9 @@ export default function Card(props) {
         <h1>{props.title}</h1>
         <p className={styles.location}>{props.location}</p>
         <p>{props.description}</p>
-        <button>
-          <Link to={`product/${props.id}`}>Ver más</Link>
-        </button>
+        <Link to={`product/${props.id}`}>
+          <button className={styles.button}>Ver más</button>
+        </Link>
       </div>
     </div>
   );

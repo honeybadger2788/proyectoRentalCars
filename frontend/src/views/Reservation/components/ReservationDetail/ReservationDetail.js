@@ -1,8 +1,8 @@
 import StarsRating from '../../../../components/StarsRating/StarsRating';
 
-import styles from './Reservation.module.css';
+import styles from './ReservationDetail.module.css';
 
-function ReservationDetail({ car }) {
+function ReservationDetail({ car, range }) {
   const ratingAverage =
     car.rating.length > 0
       ? Math.floor(
@@ -10,6 +10,9 @@ function ReservationDetail({ car }) {
             car.rating.length
         )
       : 0;
+  // const startDate = range.slice
+  const startDate = range[0].startDate.toLocaleDateString();
+  const endDate = range[0].endDate.toLocaleDateString();
 
   return (
     <section className={styles.container}>
@@ -30,17 +33,17 @@ function ReservationDetail({ car }) {
           {car.city.name}, {car.city.state}, Argentina
         </p>
         <hr className={styles.divider} />
-        <article className={styles.checkIn}>
+        <article className={styles.dates}>
           <p>Check in</p>
-          <p>23/11/2021</p>
+          <p>{startDate}</p>
         </article>
         <hr className={styles.divider} />
-        <article className={styles.checkIn}>
+        <article className={styles.dates}>
           <p>Check out</p>
-          <p>27/11/2021</p>
+          <p>{endDate}</p>
         </article>
         <hr className={styles.divider} />
-        <button>Confirmar reserva</button>
+        <button type="submit">Confirmar reserva</button>
       </section>
     </section>
   );

@@ -193,6 +193,7 @@ button {
   width: 206px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 
 button > a {
