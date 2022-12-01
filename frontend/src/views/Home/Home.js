@@ -37,7 +37,8 @@ function Home() {
       <Search getCity={getCity}></Search>
       {categories && <CategoriesLayout getCategory={getCategory} categories={categories} />}
       {cars && <List data={cars }>Listado</List>}
-      {/* <h1>h1</h1>
+      {/* 
+      <h1>h1</h1>
       <h2>h2</h2>
       <h3>h3</h3>
       <h4>h4</h4>
