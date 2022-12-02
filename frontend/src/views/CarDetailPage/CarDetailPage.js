@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { addDays } from 'date-fns';
 
 import useFetch from '../../useFetch';
 
@@ -27,7 +28,40 @@ function CarDetailPage() {
     console.log(error);
   }
 
-  console.log(car);
+  // functions related to date transform for calendar
+  const disabledDates = car
+    ? transformApiToDisabledDates(car.bookings)
+    : undefined;
+
+  function returnDatesBetweenStartAndEndDate(startDate, endDate) {
+    let dateArray = [];
+    let currentDate = addDays(startDate, 1);
+    let stopDate = addDays(endDate, 1);
+
+    while (currentDate <= stopDate) {
+      dateArray.push(currentDate);
+      currentDate = addDays(currentDate, 1);
+    }
+    return dateArray;
+  }
+
+  function transformApiToDisabledDates(bookings) {
+    let disabledDates = [];
+    const transformedBookings = bookings.map((booking) => {
+      return {
+        startDate: new Date(booking.startDate),
+        endDate: new Date(booking.endDate),
+      };
+    });
+    transformedBookings.forEach((booking) => {
+      const dateArray = returnDatesBetweenStartAndEndDate(
+        booking.startDate,
+        booking.endDate
+      );
+      disabledDates = [...disabledDates, ...dateArray];
+    });
+    return disabledDates;
+  }
 
   return (
     <>
@@ -53,7 +87,7 @@ function CarDetailPage() {
           <div className={styles.calendarContainer}>
             <div>
               <h3>Fechas disponibles</h3>
-              <Calendar />
+              <Calendar disabledDates={disabledDates} />
             </div>
             <div className={styles.reserve}>
               <p>Agregá tus fechas de viaje para obtener precios exactos</p>
