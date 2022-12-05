@@ -19,5 +19,5 @@ public interface ICarService {
     List<CarDTO> listByCategory(String category);
     List<CarDTO> listCarRandom();
     List<CarDTO> findByCityAndCategory(String category, Integer city);
-    List<CarDTO> filterCars(Specification spec)
+    List<CarDTO> filterCars(Specification spec);
 }
