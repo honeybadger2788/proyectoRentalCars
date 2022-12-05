@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import User from '../User/User';
@@ -14,6 +13,13 @@ function Navbar({ hidden, toogleDrawer }) {
   const onClickHamburger = () => {
     toogleDrawer();
   };
+
+  const isAdmin =
+    user &&
+    user.hasOwnProperty('authorities') &&
+    user.authorities[0].authority === 'ROLE_ADMIN'
+      ? true
+      : false;
 
   return (
     <nav className={`${styles.navbar} ${hidden && styles.navbar_hidden}`}>
@@ -42,6 +48,12 @@ function Navbar({ hidden, toogleDrawer }) {
         </section>
       ) : (
         <section className={styles.nav_menu}>
+          {isAdmin && (
+            <div className={styles.adminContainer}>
+              <Link to="admin">Administración</Link>
+              <span>|</span>
+            </div>
+          )}
           <User user={user} />
         </section>
       )}
