@@ -54,7 +54,7 @@ public class UserService implements IUserService, UserDetailsService {
         user.setPassword(passwordEncoder.encode(newUser.getPassword()));
         user.setCity(newUser.getCity());
         user.setRole(newUser.getRole());
-        if (userRepository.save(user) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        if (userRepository.save(user) != null) return new ResponseEntity<>(HttpStatus.CREATED);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 

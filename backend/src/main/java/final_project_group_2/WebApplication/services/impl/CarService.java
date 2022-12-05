@@ -53,7 +53,8 @@ public class CarService implements ICarService {
 
     @Override
     public ResponseEntity<?> addCar(Car newCar) {
-        if (carRepository.save(newCar) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        Integer carId = carRepository.save(newCar).getId();
+        if (carId != null) return new ResponseEntity<Integer>(carId, HttpStatus.CREATED);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 

@@ -36,7 +36,7 @@ public class BookingService implements IBookingService {
 
     @Override
     public ResponseEntity<?> addNewBooking(Booking newBooking) {
-        if (bookingRepository.save(newBooking) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        if (bookingRepository.save(newBooking) != null) return new ResponseEntity<>(HttpStatus.CREATED);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
