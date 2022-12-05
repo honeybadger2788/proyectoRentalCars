@@ -150,7 +150,7 @@ function Reservation() {
       {loading && <p>Loading...</p>}
       {car && (
         <section className={styles.container}>
-          <Header category={car.category} title={car.title} />
+          <Header subtitle={car?.category?.title} title={car?.title} />
           {bookingError && <p>{bookingError}</p>}
           <form className={styles.form} onSubmit={onSubmit}>
             <div className={styles.optional}>

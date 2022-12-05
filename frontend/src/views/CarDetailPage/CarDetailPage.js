@@ -69,7 +69,7 @@ function CarDetailPage() {
       {car && (
         <section className={styles.container}>
           <div>
-            <Header category={car.category} title={car.title} />
+            <Header subtitle={car?.category?.title} title={car?.title} />
             <Location city={car.city} rating={car.rating} />
             <section className={styles.social}>
               <i className="fa-solid fa-share-nodes fa-xl"></i>

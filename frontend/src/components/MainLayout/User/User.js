@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
-
 import { useLogout } from '../../../hooks/useLogout';
 
 import styles from './User.module.css';
