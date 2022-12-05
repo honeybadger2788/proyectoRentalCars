@@ -45,7 +45,7 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public ResponseEntity<?> addCategory(Category newCategory) {
-        if (categoryRepository.save(newCategory) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        if (categoryRepository.save(newCategory) != null) return new ResponseEntity<>(HttpStatus.CREATED);
 
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

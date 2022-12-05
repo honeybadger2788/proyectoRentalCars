@@ -15,6 +15,9 @@ public class CarDTO{
     private Characteristic characteristic;
     private String descriptionContent;
     private City city;
+
+    private String address;
+
     private Set<Rating> rating;
     private String title;
     private Set<Image> images;
@@ -27,6 +30,10 @@ public class CarDTO{
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Category getCategory() {
@@ -67,6 +74,14 @@ public class CarDTO{
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Set<Rating> getRating() {

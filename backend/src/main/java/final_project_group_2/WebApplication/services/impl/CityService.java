@@ -23,7 +23,7 @@ public class CityService implements ICityService {
 
     @Override
     public ResponseEntity<?> addCity(City newCity) {
-        if (cityRepository.save(newCity) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        if (cityRepository.save(newCity) != null) return new ResponseEntity<>(HttpStatus.CREATED);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 

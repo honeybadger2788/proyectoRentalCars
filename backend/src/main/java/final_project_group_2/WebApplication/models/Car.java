@@ -33,6 +33,8 @@ public class Car extends ProductAbstract{
     @JoinColumn(name = "cityId")
     private City city;
 
+    private String address;
+
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
     @JsonManagedReference(value="rating-relation")
     private Set<Rating> rating;
@@ -63,22 +65,30 @@ public class Car extends ProductAbstract{
 
     public Car() {
     }
-    
-    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String title) {
+
+    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String address, String title) {
         this.category = category;
         this.descriptionTitle = descriptionTitle;
         this.characteristic = characteristic;
         this.descriptionContent = descriptionContent;
         this.city = city;
+        this.address = address;
         this.title = title;
+    }
+
+    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String address, String title, Set<Policy> policies) {
+        this.category = category;
+        this.descriptionTitle = descriptionTitle;
+        this.characteristic = characteristic;
+        this.descriptionContent = descriptionContent;
+        this.city = city;
+        this.address = address;
+        this.title = title;
+        this.policies = policies;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Category getCategory() {
@@ -119,6 +129,14 @@ public class Car extends ProductAbstract{
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Set<Rating> getRating() {

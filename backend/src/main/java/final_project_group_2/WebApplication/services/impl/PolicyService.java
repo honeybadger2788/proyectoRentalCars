@@ -44,7 +44,7 @@ public class PolicyService implements IPolicyService {
 
     @Override
     public ResponseEntity<?> addPolicy(Policy newPolicy) {
-        if (policyRepository.save(newPolicy) != null) return ResponseEntity.ok(HttpStatus.CREATED);
+        if (policyRepository.save(newPolicy) != null) return new ResponseEntity<>(HttpStatus.CREATED);
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
