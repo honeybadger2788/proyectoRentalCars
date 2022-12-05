@@ -5,10 +5,12 @@ import final_project_group_2.WebApplication.models.Category;
 
 import java.util.List;
 
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-public interface ICarRepository extends JpaRepository<Car, Integer> {
+public interface ICarRepository extends JpaRepository<Car, Integer>, JpaSpecificationExecutor<Car>{
     
     @Query(value = "FROM Car c WHERE c.category.title = ?1")
     List<Car> findByCategory(String category);
@@ -21,5 +23,6 @@ public interface ICarRepository extends JpaRepository<Car, Integer> {
 
     @Query("FROM Car c ORDER BY RAND()")
     List<Car> listCarRandom();
+    
 }
 

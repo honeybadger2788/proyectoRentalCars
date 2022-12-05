@@ -7,6 +7,7 @@ import final_project_group_2.WebApplication.repositories.ICarRepository;
 import final_project_group_2.WebApplication.repositories.ICharacteristicRepository;
 import final_project_group_2.WebApplication.services.ICarService;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,18 @@ public class CarService implements ICarService {
 
     @Autowired
     ObjectMapper mapper;
+
+
+    @Override
+    public List<CarDTO> filterCars(Specification spec){
+        List<CarDTO> listCarsDTO = new ArrayList<>();
+        List<Car> cars = carRepository.findAll(spec);
+        if (cars.size() > 0) {
+            for (Car car : cars) {
+                listCarsDTO.add(mapper.convertValue(car, CarDTO.class));
+            }}
+        return listCarsDTO;
+    }
 
     @Override
     public List<CarDTO> listByCategory(String category){
