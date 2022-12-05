@@ -49,15 +49,6 @@ public class UserController {
     //Agregar un usuario
     @PostMapping("/signup")
     public ResponseEntity<?> addUser(@RequestBody User user){
-        // NO FUNCIONA LA GENERACIÓN DE TOKEN AL REGISTRAR UN NUEVO USUARIO
-        /*Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
-
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtil.generateToken(authentication);
-
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();*/
-
         return new ResponseEntity<>(userService.addUser(user), HttpStatus.CREATED);
     }
 

@@ -3,14 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useSignup } from '../../hooks/useSignup';
+import { useLogin } from '../../hooks/useLogin';
 
 import styles from './Register.module.css';
 
 export default function Register() {
   const navigate = useNavigate();
-  const { signup, error, isLoading } = useSignup();
-  const [signupError, setSignupError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState();
+  const { signup } = useSignup();
+  const { login } = useLogin();
+  const [errorMessage, setErrorMessage] = useState()
+  const [error, setError] = useState()
+  const [isLoading, setIsLoading] = useState()
   const {
     register,
     reset,
@@ -20,22 +23,26 @@ export default function Register() {
 
   const onSubmit = async (data) => {
     if (data.password === data.confirmPassword) {
-      await signup(data.firstName, data.lastName, data.email, data.password);
-      reset()
-      // no funciona el envio de errores
-      if (error) {
-        setSignupError(true)
-        setErrorMessage(error);
+      const { error: errorSignup, isLoading: isLoadingSignup, result } = await signup(data.firstName, data.lastName, data.email, data.password)
+      setError(errorSignup)
+      if (result) {
+        const { error: errorLogin, isLoading: isLoadingLogin } = await login(data.email, data.password);
+        setIsLoading(isLoadingLogin && isLoadingSignup)
+        setError(errorSignup || errorLogin)
+        if (!errorSignup && !errorLogin) {
+          reset()
+          navigate('/')
+        }
       }
-      if (!error) navigate('/');
     } else setErrorMessage('Las contraseñas no coinciden');
-  };
+}
 
   return (
     <div>
       {isLoading && <p>Loading...</p>}
       <h1 className={styles.title}>Crear cuenta</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
+        {error && <p className={styles.error}>{error}</p>}
         <p className={styles.error}>{errorMessage}</p>
         <div className={styles.nameContainer}>
           <div className={styles.container}>
@@ -73,7 +80,7 @@ export default function Register() {
           <input
             id="email"
             type="email"
-            className={errors.email || signupError ? styles.error : undefined}
+            className={errors.email || error ? styles.error : undefined}
             {...register('email', {
               required: { value: true, message: 'Campo obligatorio' },
               pattern: {
@@ -91,7 +98,7 @@ export default function Register() {
           <input
             id="password"
             type="password"
-            className={errors.email || signupError ? styles.error : undefined}
+            className={errors.email || error ? styles.error : undefined}
             {...register('password', {
               required: { value: true, message: 'Campo obligatorio' },
               minLength: {
@@ -110,7 +117,7 @@ export default function Register() {
           <input
             id="confirmPassword"
             type="password"
-            className={errors.email || signupError ? styles.error : undefined}
+            className={errors.email || error ? styles.error : undefined}
             {...register('confirmPassword', {
               required: { value: true, message: 'Campo obligatorio' },
               minLength: {
