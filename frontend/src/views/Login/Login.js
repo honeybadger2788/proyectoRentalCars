@@ -6,33 +6,33 @@ import styles from './Login.module.css'
 
 export default function Login() {
     const navigate = useNavigate()
-    const { login, error, isLoading } = useLogin();
-    const [wrongCredentials, setWrongCredentials] = useState(false)
+    const { login } = useLogin();
+    const [error, setError] = useState()
+    const [isLoading, setIsLoading] = useState()
     const { register, reset ,formState: { errors }, handleSubmit } = useForm();
     
     const onSubmit = async (data) => {
-        await login(data.username, data.password);
+        const { error, isLoading } = await login(data.username, data.password);
+        setIsLoading(isLoading)
+        setError(error)
         if (!error) {
-            setWrongCredentials(false)
             reset()
             navigate('/')
         }
-        // no funciona el envio de errores
-        if(error) console.log(error)
     }
 
     return (
         <div>
-            {isLoading && <p>Loading...</p>}
+            { isLoading && <p>Loading...</p>}
             <h1 className={styles.title}>Iniciar sesión</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
-                {wrongCredentials && <p className={styles.error}>Por favor vuelva a intentarlo, sus credenciales son inválidas</p>}           
+                {error && <p className={styles.error}>{error}</p>}
                 <div className={styles.container}>
                     <label htmlFor='email'>Correo electrónico</label>
                     <input id='email'
                         type='email'
                         name='username'
-                        className={errors.username||wrongCredentials ? styles.error : undefined }
+                        className={errors.username||error ? styles.error : undefined }
                         {...register('username',
                             {
                                 required: { value: true, message: 'Campo obligatorio' },
@@ -49,7 +49,7 @@ export default function Login() {
                     <input id='password'
                         type='password'
                         name='password'
-                        className={errors.password||wrongCredentials ? styles.error : undefined}
+                        className={errors.password||error ? styles.error : undefined}
                         {...register('password',
                             {
                                 required: {value: true, message: 'Campo obligatorio'}
