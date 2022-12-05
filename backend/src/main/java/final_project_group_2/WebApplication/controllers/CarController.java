@@ -8,7 +8,7 @@ import final_project_group_2.WebApplication.searchs.CarSpecification;
 import final_project_group_2.WebApplication.services.ICarService;
 
 import org.hibernate.annotations.common.util.impl.Log;
-import org.hibernate.annotations.common.util.impl.Log_.logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;

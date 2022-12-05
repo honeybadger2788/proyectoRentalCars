@@ -34,7 +34,7 @@ public class User {
 
 
     @OneToMany(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "user_id")
     @JsonManagedReference(value="user-relation")
     private Set<Booking> bookings;
 
