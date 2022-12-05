@@ -17,7 +17,7 @@ public class Car extends ProductAbstract{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    public Integer id;
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
