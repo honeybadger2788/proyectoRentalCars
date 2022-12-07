@@ -85,15 +85,17 @@ function CarDetailPage() {
           <Policies policies={carMock.policies} />
 
           <div className={styles.calendarContainer}>
-            <div>
-              <h3>Fechas disponibles</h3>
-              <Calendar disabledDates={disabledDates} />
-            </div>
-            <div className={styles.reserve}>
-              <p>Agregá tus fechas de viaje para obtener precios exactos</p>
-              <Link to={`reservation`}>
-                <button>Iniciar reserva</button>
-              </Link>
+            <h3>Fechas disponibles</h3>
+            <div className={styles.gridContainer}>
+              <div className={styles.calendar}>
+                <Calendar disabledDates={disabledDates} />
+              </div>
+              <div className={styles.reserve}>
+                <p>Agregá tus fechas de viaje para obtener precios exactos</p>
+                <Link to={`reservation`}>
+                  <button>Iniciar reserva</button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

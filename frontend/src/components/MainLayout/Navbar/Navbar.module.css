@@ -47,6 +47,10 @@
   gap: 16px;
 }
 
+.adminContainer a {
+  color: var(--secondary);
+}
+
 .adminContainer > a:visited {
   color: var(--secondary);
 }

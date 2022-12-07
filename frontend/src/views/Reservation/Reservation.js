@@ -9,6 +9,7 @@ import Header from '../../components/Header/Header';
 import Policies from '../../components/Policies/Policies';
 import Calendar from '../../components/Calendar/Calendar';
 import ReservationDetail from './components/ReservationDetail/ReservationDetail';
+import PersonalData from './components/PersonalData/PersonalData';
 
 import styles from './Reservation.module.css';
 
@@ -151,26 +152,29 @@ function Reservation() {
       {car && (
         <section className={styles.container}>
           <Header subtitle={car?.category?.title} title={car?.title} />
-          {bookingError && <p>{bookingError}</p>}
-          <form className={styles.form} onSubmit={onSubmit}>
-            <div className={styles.optional}>
-              <h3>Completá tus datos</h3>
-              <p>Aca va algo opcional 🐻 </p>
-            </div>
-            <div className={styles.calendar}>
-              <h3>Seleccioná tu fecha de reserva</h3>
-              <Calendar
-                disabledDates={disabledDates}
-                range={range}
-                setRange={setRange}
-              />
-            </div>
+          <div className={styles.body}>
+            {bookingError && <p>{bookingError}</p>}
+            <form className={styles.form} onSubmit={onSubmit}>
+              <div className={styles.personalData}>
+                <PersonalData user={user} />
+              </div>
+              <div className={styles.calendar}>
+                <h3>Seleccioná tu fecha de reserva</h3>
+                <div>
+                  <Calendar
+                    disabledDates={disabledDates}
+                    range={range}
+                    setRange={setRange}
+                  />
+                </div>
+              </div>
 
-            <div className={styles.details}>
-              <ReservationDetail car={car} range={range} />
-            </div>
-          </form>
-          <Policies policies={carMock.policies} />
+              <div className={styles.details}>
+                <ReservationDetail car={car} range={range} />
+              </div>
+            </form>
+            <Policies policies={carMock.policies} />
+          </div>
         </section>
       )}
     </>
