@@ -10,18 +10,18 @@ function Home() {
   const [categoryFilter, setCategoryFilter] = useState()
 
   const getCity = (data) => {
-    setCityFilter(`?city=${data}`)
+    setCityFilter(`city=${data}`)
     console.log(data)
   }
 
   const getCategory = (data) => {
-    setCategoryFilter(`?category=${data}`)
+    setCategoryFilter(`category=${data}`)
     console.log(data)
   }
 
   const { data: cars,
     errorCar } =
-    useFetch(`http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car${cityFilter||categoryFilter||""}`)
+    useFetch(`http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car${cityFilter||categoryFilter?`?${categoryFilter}&${cityFilter}`:""}`)
 
   const { data: categories,
     errorCategory } =
