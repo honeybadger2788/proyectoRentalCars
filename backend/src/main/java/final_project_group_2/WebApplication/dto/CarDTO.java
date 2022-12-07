@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import final_project_group_2.WebApplication.models.*;
 
+import java.util.List;
 import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -120,8 +121,8 @@ public class CarDTO{
         return bookings;
     }
 
-    public void setBookings(Set<Booking> bookings) {
-        this.bookings = bookings;
+    public void setBookings(Set<Booking> list) {
+        this.bookings = list;
     }
 
 }

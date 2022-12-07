@@ -2,6 +2,7 @@ package final_project_group_2.WebApplication.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import final_project_group_2.WebApplication.dto.BookingDTO;
+import final_project_group_2.WebApplication.dto.BookingDTO2;
 import final_project_group_2.WebApplication.models.Booking;
 import final_project_group_2.WebApplication.repositories.IBookingRepository;
 import final_project_group_2.WebApplication.services.IBookingService;
@@ -41,11 +42,12 @@ public class BookingService implements IBookingService {
     }
 
     @Override
-    public Set<BookingDTO> listByUserId(Integer userId){
-        Set<BookingDTO> setBookings = new HashSet<>();
-        List<Booking> bookings = bookingRepository.findByUserId(userId);
+    public Set<BookingDTO2> listByCarId(Integer carId){
+        Set<BookingDTO2> setBookings = new HashSet<>();
+        Set<Booking> bookings = bookingRepository.findByCarId(carId);
         for (Booking booking : bookings) {
-            setBookings.add(mapper.convertValue(booking, BookingDTO.class));
+            setBookings.add(mapper.convertValue(booking, BookingDTO2.class));
+            
         }
         return setBookings;
     }
@@ -56,11 +58,14 @@ public class BookingService implements IBookingService {
     //     return null;
     // }
 
-    // @Override
-    // public ResponseEntity<?> deleteBooking(Integer id) {
-    //     // TODO Auto-generated method stub
-    //     return null;
-    // }
+    @Override
+    public ResponseEntity<?> deleteBooking(Integer id) {
+        if(bookingRepository.findById(id).isPresent()) {
+            bookingRepository.deleteById(id);
+            return new ResponseEntity("La reserva con ID: " + id + " ha sido eliminada.", HttpStatus.OK);
+        }
+        return new ResponseEntity("La reserva con ID: " + id + " no existe.", HttpStatus.NOT_FOUND);
+    }
 
     // @Override
     // public ResponseEntity<?> updateBooking(Image image) {

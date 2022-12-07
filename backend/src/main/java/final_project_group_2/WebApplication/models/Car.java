@@ -1,5 +1,6 @@
 package final_project_group_2.WebApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -59,7 +60,7 @@ public class Car extends ProductAbstract{
     private Set<Policy> policies = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
-    @JsonManagedReference(value="booking-relation")
+    @JsonIgnore
     private Set<Booking> bookings;
     
 

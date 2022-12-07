@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000", "http://grupo2-frontend.s3-website.us-east-2.amazonaws.com"})
@@ -26,6 +27,11 @@ public class BookingController {
         return bookingService.listBookings();
     }
 
+    // //Devolver el listado completo de reservas
+    // @GetMapping("/user/{id}")
+    // public Set<BookingDTO> listBookingsByUserId(@PathVariable Integer id) {
+    //     return bookingService.listByUserId(id);
+    // }
 
     //Agregar una reserva
     @PostMapping("/add")
@@ -34,11 +40,11 @@ public class BookingController {
     }
 
 
-    // //Eliminar una reserva
-    // @DeleteMapping("/delete/{id}")
-    // public ResponseEntity<?> deleteBooking(@PathVariable Integer id){
-    //     return bookingService.deleteBooking(id);
-    // }
+    //Eliminar una reserva
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteBooking(@PathVariable Integer id){
+        return bookingService.deleteBooking(id);
+    }
 
 
     // //Editar una reserva

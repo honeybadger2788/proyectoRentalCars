@@ -20,6 +20,16 @@ import final_project_group_2.WebApplication.models.City;
 
 public class CarSpecification implements Specification<Car> {
 
+    public static Specification<Car> allCars(String categoryTitle) {
+        
+        return (root, query, criteriaBuilder) -> {
+            
+            return criteriaBuilder.not(criteriaBuilder.isNull(root.get("title")));
+        };
+            
+    } 
+
+    
     public static Specification<Car> carsByCategoryTitle(String categoryTitle) {
         
         return (root, query, criteriaBuilder) -> {
@@ -44,13 +54,8 @@ public class CarSpecification implements Specification<Car> {
                         criteriaBuilder.not(criteriaBuilder.and(criteriaBuilder.greaterThan(bookingJoin.get("startDate"),startDate), criteriaBuilder.lessThan(bookingJoin.get("endDate"),endDate)))
                     )
                 ),
-
                 criteriaBuilder.isNull(bookingJoin.get("startDate"))
-
-            );
-            
-            
-            
+            );  
         };
     }
 

@@ -2,6 +2,7 @@ package final_project_group_2.WebApplication.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -24,12 +25,11 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "carId",nullable = false)
-    @JsonBackReference(value="booking-relation")
     private Car car;
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    @JsonBackReference(value="user-relation")
+    @JsonIgnore
     private User user;
 
     public Booking() {
