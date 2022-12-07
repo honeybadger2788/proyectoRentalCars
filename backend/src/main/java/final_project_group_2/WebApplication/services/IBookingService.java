@@ -1,6 +1,7 @@
 package final_project_group_2.WebApplication.services;
 
 import final_project_group_2.WebApplication.dto.BookingDTO;
+import final_project_group_2.WebApplication.dto.BookingDTO2;
 import final_project_group_2.WebApplication.models.Booking;
 import org.springframework.http.ResponseEntity;
 
@@ -15,9 +16,9 @@ public interface IBookingService {
 
     ResponseEntity<?> addNewBooking(Booking booking);
 
-    Set<BookingDTO> listByUserId(Integer userId);
+    Set<BookingDTO2> listByCarId(Integer carId);
 
-    // ResponseEntity<?> deleteBooking(Integer id);
+    ResponseEntity<?> deleteBooking(Integer id);
 
     // ResponseEntity<?> updateBooking(Image image);
 }

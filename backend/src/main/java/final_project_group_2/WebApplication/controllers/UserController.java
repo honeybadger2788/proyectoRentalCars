@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getCarById(@PathVariable int id) {
+    public ResponseEntity<?> getUserById(@PathVariable int id) {
         return userService.findById(id);
     }
 
