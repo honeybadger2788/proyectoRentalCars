@@ -8,9 +8,15 @@ import useFetch from '../../useFetch';
 function Home() {
   const [cityFilter, setCityFilter] = useState()
   const [categoryFilter, setCategoryFilter] = useState()
+  const [dateFilter, setDateFilter] = useState(["startDate=undefined&endDate=undefined"])
 
   const getCity = (data) => {
     setCityFilter(`city=${data}`)
+    console.log(data)
+  }
+
+  const getDates = (data) => {
+    setDateFilter(`startDate=${data[0]}&endDate=${data[1]}`)
     console.log(data)
   }
 
@@ -20,8 +26,7 @@ function Home() {
   }
 
   const { data: cars,
-    errorCar } =
-    useFetch(`http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car${cityFilter||categoryFilter?`?${categoryFilter}&${cityFilter}`:""}`)
+    errorCar } = useFetch(`http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/car${cityFilter||categoryFilter||dateFilter?`?${categoryFilter}&${cityFilter}&${dateFilter}`:""}`)
 
   const { data: categories,
     errorCategory } =
@@ -34,7 +39,7 @@ function Home() {
   
   return (
     <>
-      <Search getCity={getCity}></Search>
+      <Search getCity={getCity} getDates={getDates}></Search>
       {categories && <CategoriesLayout getCategory={getCategory} categories={categories} />}
       {cars && <List data={cars }>Listado</List>}
       {/* 

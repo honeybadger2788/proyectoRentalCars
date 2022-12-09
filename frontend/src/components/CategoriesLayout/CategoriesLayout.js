@@ -3,9 +3,7 @@ import styles from './CategoriesLayout.module.css'
 import Category from "./Category/Category";
 
 export default function CategoriesLayout({ getCategory, categories }) {
-  const onClick = (e) => {
-    getCategory(e.target.alt)
-  }
+
     return (
       <section className={styles.section}>
     <section className={styles.section}>
@@ -15,7 +13,7 @@ export default function CategoriesLayout({ getCategory, categories }) {
               categories.map((category) => (
                 <Category key={category.title}
                   image={category.image}
-                  onClick={onClick}
+                  onClick={() => getCategory(category.title)}
                 >{category.title}</Category>
               ))
           }

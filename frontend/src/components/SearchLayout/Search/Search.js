@@ -1,13 +1,22 @@
 import React from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { addDays, format } from 'date-fns';
 import styles from './Search.module.css';
-import DateRangeComp from '../DateRangePicker/DateRangePicker';
 import useFetch from '../../../useFetch';
+import SearchCalendar from '../SearchCalendar/SearchCalendar';
 
-export default function Search({ getCity }) {
+export default function Search({ getCity, getDates }) {
   const {register,handleSubmit} = useForm();
 
-  
+  const [range, setRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: 'selection',
+    },
+  ]);
+
   const { data: cities,
     error } =
     useFetch('http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/cities')
@@ -17,9 +26,21 @@ export default function Search({ getCity }) {
 
   const onSubmit = (data) => {
     getCity(data.city)
+    const startDate = format(range[0].startDate, 'yyyy-MM-dd');
+    const endDate = format(range[0].endDate, 'yyyy-MM-dd');
+
+    console.log(startDate)
+    console.log(endDate)
+
+    const dates = [startDate,endDate]
+
+    console.log(dates)
+    
+    getDates(dates)
   }
 
-  
+
+
   return (
     <div className={styles.search}>
     <h1 className={styles.title}>
@@ -39,8 +60,12 @@ export default function Search({ getCity }) {
           }
         </select>
       </div>
+      
       <div className={styles.container}>
-        <DateRangeComp />
+        <SearchCalendar
+          range={range}
+          setRange={setRange}
+        />
       </div>
     <div className={styles.buttonContainer}>
       <button className={styles.button} type="submit">
