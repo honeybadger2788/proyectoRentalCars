@@ -60,7 +60,7 @@ public class Car extends ProductAbstract{
     private Set<Policy> policies = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference(value="booking-relation")
     private Set<Booking> bookings;
     
 

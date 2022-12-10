@@ -67,6 +67,7 @@ public class UserService implements IUserService, UserDetailsService {
         if (foundUser !=null) {
             if(foundUser.getRole().getId() == 2){
                 CustomerDTO user = mapper.convertValue(userRepository.findById(id).get(), CustomerDTO.class);
+                user.setBookings(bookingService.listByUserId(user.getId()));
                 return new ResponseEntity<CustomerDTO>(user, HttpStatus.OK);
             }else{
                 UserDTO user = mapper.convertValue(userRepository.findById(id).get(), UserDTO.class);
