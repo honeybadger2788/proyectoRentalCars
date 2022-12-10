@@ -2,7 +2,6 @@ package final_project_group_2.WebApplication.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import final_project_group_2.WebApplication.dto.BookingDTO;
-import final_project_group_2.WebApplication.dto.BookingDTO2;
 import final_project_group_2.WebApplication.models.Booking;
 import final_project_group_2.WebApplication.repositories.IBookingRepository;
 import final_project_group_2.WebApplication.services.IBookingService;
@@ -51,12 +50,11 @@ public class BookingService implements IBookingService {
     }
 
     @Override
-    public Set<BookingDTO2> listByCarId(Integer carId){
-        Set<BookingDTO2> setBookings = new HashSet<>();
-        Set<Booking> bookings = bookingRepository.findByCarId(carId);
+    public Set<BookingDTO> listByCarId(Integer carId){
+        Set<BookingDTO> setBookings = new HashSet<>();
+        List<Booking> bookings = bookingRepository.findByCarId(carId);
         for (Booking booking : bookings) {
-            setBookings.add(mapper.convertValue(booking, BookingDTO2.class));
-            
+            setBookings.add(mapper.convertValue(booking, BookingDTO.class));
         }
         return setBookings;
     }

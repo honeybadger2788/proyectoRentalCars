@@ -1,6 +1,7 @@
 package final_project_group_2.WebApplication.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -33,9 +34,10 @@ public class User {
     Role role;
 
 
-    @OneToMany(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "user_id")
-    @JsonManagedReference(value="user-relation")
+    //@OneToMany(cascade = CascadeType.MERGE)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "user", cascade = CascadeType.ALL)
+    //@JoinColumn(name = "user_id")
+    @JsonIgnore
     private Set<Booking> bookings;
 
     public User() {

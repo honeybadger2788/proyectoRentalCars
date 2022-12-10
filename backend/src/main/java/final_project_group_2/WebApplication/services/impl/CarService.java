@@ -87,7 +87,7 @@ public class CarService implements ICarService {
     public ResponseEntity<?> findById(Integer id) {
         CarDTO foundCar = mapper.convertValue(carRepository.findById(id).get(), CarDTO.class);
         if (foundCar !=null){
-            foundCar.setBookings(bookingRepository.findByCarId(id));
+            //foundCar.setBookings(bookingRepository.findByCarId(id));
             return new ResponseEntity<CarDTO>(foundCar, HttpStatus.OK);
         }else{
             return new ResponseEntity("No se encontró el auto solicitado", HttpStatus.NOT_FOUND);

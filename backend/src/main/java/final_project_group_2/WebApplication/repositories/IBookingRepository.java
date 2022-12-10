@@ -15,7 +15,7 @@ public interface IBookingRepository extends JpaRepository<Booking, Integer> {
     List<Booking> findByUserId(Integer userId);
 
 
-    @Query("from Booking b join Car c on b.car.id = c.id where c.id = ?1 order by b.id")
-    Set<Booking> findByCarId(Integer carId);
+    @Query("from Booking b where b.car.id = ?1 order by b.id")
+    List<Booking> findByCarId(Integer carId);
 }
 
