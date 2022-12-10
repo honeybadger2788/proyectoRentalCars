@@ -1,17 +1,32 @@
-
 .section {
-    width: 100%;
+  width: 100%;
 }
 
-.h1 {
-    padding: 0.5rem 0rem 0.5rem 0.75rem;
+.section h1 {
+  padding: 16px 0px;
 }
 
 .container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0 0.75rem;
-    padding-bottom: 1.1875rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 768px) and (min-width: 425px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { DateRange } from 'react-date-range';
+import { es } from 'date-fns/locale';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
@@ -31,6 +32,7 @@ function Calendar({ range, setRange, disabledDates }) {
         minDate={new Date()}
         months={windowWidth < 750 ? 1 : 2}
         moveRangeOnFirstSelection={false}
+        locale={es}
         ranges={range}
         onChange={(item) => setRange([item.selection])}
         showDateDisplay={false}
