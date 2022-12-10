@@ -81,9 +81,9 @@ function SearchCalendar({ range, setRange }) {
 
       <div ref={refOne} className={styles.calendarContainer}>
         <input
-            value={`${format(range[0].startDate, 'MM/dd/yyyy')} to ${format(
+            value={`${format(range[0].startDate, 'dd/MM/yyyy')} to ${format(
             range[0].endDate,
-            'MM/dd/yyyy'
+            'dd/MM/yyyy'
             )}`}
             readOnly
             className={styles.input}
