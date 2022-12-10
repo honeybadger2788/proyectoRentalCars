@@ -2,21 +2,22 @@ import Card from './Card/Card';
 
 import styles from './List.module.css';
 
-function List({ data, children }) {
+function List({ data }) {
   return (
-    <section className={styles.section}>
-      <h1 className={styles.h1}>{children}</h1>
-      <div className={styles.card_layout}>
-        {data.map((item, key) => {
+    <section className={styles.container}>
+      <h1>Recomendaciones</h1>
+      <div className={styles.layout}>
+        {data.map((item) => {
           return (
             <Card
-              key={item.id}
-              title={item.title}
               category={item.category.title}
-              description={item.descriptionTitle}
-              location={item.city.name}
-              img={item.images[0]?.url}
+              descriptionContent={item.descriptionContent}
               id={item.id}
+              img={item.images[0]?.url}
+              key={item.id}
+              location={item.city.name}
+              rating={item.rating}
+              title={item.title}
             ></Card>
           );
         })}
