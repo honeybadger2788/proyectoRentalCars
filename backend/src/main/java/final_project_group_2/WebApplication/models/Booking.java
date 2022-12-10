@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Time;
 
 
@@ -25,11 +25,12 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "carId",nullable = false)
+    @JsonBackReference(value="booking-relation")
     private Car car;
 
     @ManyToOne
     @JoinColumn(nullable = false)
-    @JsonIgnore
+    @JsonBackReference(value="user-relation")
     private User user;
 
     public Booking() {
