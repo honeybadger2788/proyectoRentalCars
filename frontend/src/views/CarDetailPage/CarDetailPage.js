@@ -1,14 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { addDays } from 'date-fns';
 
 import useFetch from '../../useFetch';
 
-import Calendar from './components/Calendar/Calendar';
-import Characteristics from './components/Characteristics/Characteristics';
-import Description from './components/Description/Description';
-import Header from './components/Header/Header';
-import Images from './components/Images/Images';
-import Location from './components/Location/Location';
-import Policies from './components/Policies/Policies';
+import Calendar from '../../components/Calendar/Calendar';
+import Characteristics from '../../components/Characteristics/Characteristics';
+import Description from '../../components/Description/Description';
+import Header from '../../components/Header/Header';
+import Images from '../../components/Images/Images';
+import Location from '../../components/Location/Location';
+import Policies from '../../components/Policies/Policies';
 
 import styles from './CarDetailPage.module.css';
 
@@ -27,15 +28,59 @@ function CarDetailPage() {
     console.log(error);
   }
 
-  console.log(car);
+  const {
+    data: bookings,
+    loading: loadingBooking,
+    error: errorBooking,
+  } = useFetch(
+    `http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/booking/car/${id}`
+  );
+  if (errorBooking) {
+    console.log(errorBooking);
+  }
+
+  // functions related to date transform for calendar
+  const disabledDates = bookings
+    ? transformApiToDisabledDates(bookings)
+    : undefined;
+
+  function returnDatesBetweenStartAndEndDate(startDate, endDate) {
+    let dateArray = [];
+    let currentDate = addDays(startDate, 1);
+    let stopDate = addDays(endDate, 1);
+
+    while (currentDate <= stopDate) {
+      dateArray.push(currentDate);
+      currentDate = addDays(currentDate, 1);
+    }
+    return dateArray;
+  }
+
+  function transformApiToDisabledDates(bookings) {
+    let disabledDates = [];
+    const transformedBookings = bookings.map((booking) => {
+      return {
+        startDate: new Date(booking.startDate),
+        endDate: new Date(booking.endDate),
+      };
+    });
+    transformedBookings.forEach((booking) => {
+      const dateArray = returnDatesBetweenStartAndEndDate(
+        booking.startDate,
+        booking.endDate
+      );
+      disabledDates = [...disabledDates, ...dateArray];
+    });
+    return disabledDates;
+  }
 
   return (
     <>
-      {loading && <p>Loading...</p>}
+      {loading && loadingBooking && <p>Loading...</p>}
       {car && (
         <section className={styles.container}>
           <div>
-            <Header category={car.category} title={car.title} />
+            <Header subtitle={car?.category?.title} title={car?.title} />
             <Location city={car.city} rating={car.rating} />
             <section className={styles.social}>
               <i className="fa-solid fa-share-nodes fa-xl"></i>
@@ -49,7 +94,21 @@ function CarDetailPage() {
           />
           <Characteristics characteristic={car.characteristic} />
           <Policies policies={carMock.policies} />
-          <Calendar />
+
+          <div className={styles.calendarContainer}>
+            <h3>Fechas disponibles</h3>
+            <div className={styles.gridContainer}>
+              <div className={styles.calendar}>
+                <Calendar disabledDates={disabledDates} />
+              </div>
+              <div className={styles.reserve}>
+                <p>Agregá tus fechas de viaje para obtener precios exactos</p>
+                <Link to={`reservation`}>
+                  <button>Iniciar reserva</button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </section>
       )}
     </>

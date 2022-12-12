@@ -3,15 +3,19 @@ package final_project_group_2.WebApplication.services.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import final_project_group_2.WebApplication.dto.CarDTO;
 import final_project_group_2.WebApplication.models.*;
+import final_project_group_2.WebApplication.repositories.IBookingRepository;
 import final_project_group_2.WebApplication.repositories.ICarRepository;
 import final_project_group_2.WebApplication.repositories.ICharacteristicRepository;
 import final_project_group_2.WebApplication.services.ICarService;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -22,10 +26,25 @@ public class CarService implements ICarService {
     ICarRepository carRepository;
 
     @Autowired
+    IBookingRepository bookingRepository;
+
+    @Autowired
     ICharacteristicRepository characteristicService;
 
     @Autowired
     ObjectMapper mapper;
+
+
+    // @Override
+    // public List<CarDTO> filterCars(Specification spec){
+    //     List<CarDTO> listCarsDTO = new ArrayList<>();
+    //     List<Car> cars = carRepository.findAll(spec);
+    //     if (cars.size() > 0) {
+    //         for (Car car : cars) {
+    //             listCarsDTO.add(mapper.convertValue(car, CarDTO.class));
+    //         }}
+    //     return listCarsDTO;
+    // }
 
     @Override
     public List<CarDTO> listByCategory(String category){
@@ -40,8 +59,9 @@ public class CarService implements ICarService {
 
     @Override
     public ResponseEntity<?> addCar(Car newCar) {
-        if (carRepository.save(newCar) != null) return ResponseEntity.ok(HttpStatus.OK);
-        return (ResponseEntity<?>) ResponseEntity.internalServerError();
+        Integer carId = carRepository.save(newCar).getId();
+        if (carId != null) return new ResponseEntity<Integer>(carId, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @Override
@@ -68,6 +88,7 @@ public class CarService implements ICarService {
     public ResponseEntity<?> findById(Integer id) {
         CarDTO foundCar = mapper.convertValue(carRepository.findById(id).get(), CarDTO.class);
         if (foundCar !=null){
+            //foundCar.setBookings(bookingRepository.findByCarId(id));
             return new ResponseEntity<CarDTO>(foundCar, HttpStatus.OK);
         }else{
             return new ResponseEntity("No se encontró el auto solicitado", HttpStatus.NOT_FOUND);
@@ -115,4 +136,17 @@ public class CarService implements ICarService {
         }
         return carsDTO;
     }
+
+    @Override
+    public List<CarDTO> filterCars(Specification spec) {
+        List<CarDTO> listCarsDTO = new ArrayList<>();
+        List<Car> listCars = carRepository.findAll(spec);
+        for (Car car : listCars) {
+            listCarsDTO.add(mapper.convertValue(car, CarDTO.class));
+        }
+        Collections.shuffle(listCarsDTO);
+        return listCarsDTO;
+    }
+
+   
 }

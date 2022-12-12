@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: var(--secondaryLight);
+}
+
 label {
   font-size: 0.75rem;
   font-weight: 500;
@@ -41,6 +45,11 @@ input[type= password] {
 
 .center {
   text-align: center;
+}
+
+.fa-circle-exclamation {
+  margin-top: 1rem;
+  color: var(--secondaryLight);
 }
 
 /* DESKTOP */

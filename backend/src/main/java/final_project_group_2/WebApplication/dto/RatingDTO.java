@@ -1,11 +1,9 @@
 package final_project_group_2.WebApplication.dto;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import final_project_group_2.WebApplication.models.Car;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RatingDTO {

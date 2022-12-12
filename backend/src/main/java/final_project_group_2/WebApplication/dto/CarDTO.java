@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import final_project_group_2.WebApplication.models.*;
 
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -16,12 +16,14 @@ public class CarDTO{
     private Characteristic characteristic;
     private String descriptionContent;
     private City city;
+
+    private String address;
+
     private Set<Rating> rating;
     private String title;
-
     private Set<Image> images;
-
     private Set<Policy> policies;
+    private Set<Booking> bookings;
     
     public CarDTO() {
 
@@ -29,6 +31,10 @@ public class CarDTO{
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Category getCategory() {
@@ -71,6 +77,14 @@ public class CarDTO{
         this.city = city;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public Set<Rating> getRating() {
         return rating;
     }
@@ -102,4 +116,13 @@ public class CarDTO{
     public void setPolicies(Set<Policy> policies) {
         this.policies = policies;
     }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> list) {
+        this.bookings = list;
+    }
+
 }

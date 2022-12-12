@@ -1,66 +1,125 @@
-.card_container {
+/* helper classes */
+
+.flex {
+  display: flex;
+}
+
+.flexRow {
+  flex-direction: row;
+}
+
+.flexColumn {
+  flex-direction: column;
+}
+
+/* targeted classes */
+
+.cardContainer {
   background-color: white;
   border-radius: 10px;
   border: 1px solid #dfe4ea;
-  box-shadow: 0px 4px 4px 0px #00000040;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  transition: box-shadow 0.25s ease;
+}
+
+.cardContainer:hover {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.imgContainer {
+  position: relative;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  max-width: 320px;
+  align-items: center;
+  justify-content: center;
 }
 
-.details {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.details > button {
-  margin-top: 0.5rem;
-}
-
-.card_container > img {
-  border-radius: 8px 8px;
-  height: 50%;
-  width: auto;
+.productImage {
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
   object-fit: cover;
 }
 
-.details h1 {
-  color: var(--secondary);
-  padding: 0px 0px 16px 0px;
+.favorite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.location {
-  margin: 0px 0px 16px 0px;
+.titleContainer {
+  align-items: end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.details button {
+.ratingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.ratingScoreContainer {
+  align-items: center;
+  background-color: var(--secondaryLight);
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+
+.bodyContainer {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.locationIcon {
+  margin-right: 8px;
+}
+
+.buttonContainer button {
   width: 100%;
 }
 
 /* TABLET */
 @media (max-width: 768px) and (min-width: 425px) {
-  .card_container {
-    flex-direction: row;
-    max-width: 635px;
+  .cardContainer {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .card_container > img {
-    height: auto;
-    width: 50%;
+  .imgContainer {
+    align-self: center;
+  }
+
+  .contentContainer {
   }
 }
 
 /* DESKTOP */
 
 @media (min-width: 769px) {
-  .card_container {
-    flex-direction: row;
-    max-width: 710px;
+  .cardContainer {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .card_container > img {
-    height: auto;
-    width: 50%;
+  .imgContainer {
+    align-self: center;
+  }
+
+  .contentContainer {
   }
 }

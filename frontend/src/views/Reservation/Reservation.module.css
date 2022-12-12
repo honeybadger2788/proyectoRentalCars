@@ -1,0 +1,74 @@
+.container {
+  background-color: BEBEBE;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form {
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.personalData {
+  width: 100%;
+  height: 100%;
+}
+
+.calendarContainer {
+  width: 100%;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.calendar > h3 {
+  margin-bottom: 8px;
+}
+
+.details {
+  width: 100%;
+  height: 100%;
+}
+
+/* DESKTOP */
+
+@media (min-width: 821px) {
+  .body {
+    margin: 8px 40px;
+  }
+
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .personalData {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .calendar {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .details {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+  }
+}
