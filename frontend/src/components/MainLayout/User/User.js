@@ -18,9 +18,9 @@ export default function User({ user }) {
       </div>
       <h3 className={styles.h3}>
         Hola,{' '}
-        <button className={styles.userBtn}>
+        <span className={styles.userBtn}>
           {user.firstName + ' ' + user.lastName}
-        </button>
+        </span>
       </h3>
       <h3 className={styles.close} onClick={onClickLogout}>
         x

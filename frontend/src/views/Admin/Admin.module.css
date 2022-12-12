@@ -132,6 +132,10 @@ option {
   width: 40px;
 }
 
+.removeButton:hover {
+  box-shadow: unset;
+}
+
 .formImages button {
   margin: 16px 0px;
 }
