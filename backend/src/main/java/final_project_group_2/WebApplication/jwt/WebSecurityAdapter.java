@@ -45,7 +45,8 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
                         "/categories/**",
                         "/images/**",
                         "/rating/**",
-                        "/policies/**").permitAll()
+                        "/policies/**",
+                        "booking/car/**").permitAll()
                 .anyRequest().authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter,UsernamePasswordAuthenticationFilter.class);
