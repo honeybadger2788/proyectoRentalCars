@@ -10,11 +10,12 @@ export const useLogin = () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({ username, password }),
-      }
-    )
+      })
       .then(response => {
-        console.log(response)
-        if (response.status !== 200) {
+        if (response.status === 403) {
+          throw new Error  ("Credenciales inválidas")
+        }
+        else if (response.status !== 200) {
           throw new Error  ("Lamentablemente no ha podido iniciar sesión. Por favor intente más tarde")
         } else {
           return response.json()

@@ -1,6 +1,7 @@
 package final_project_group_2.WebApplication.controllers;
 
 import final_project_group_2.WebApplication.dto.UserDTO;
+import final_project_group_2.WebApplication.exceptions.UsernameException;
 import final_project_group_2.WebApplication.jwt.JwtUtil;
 import final_project_group_2.WebApplication.models.User;
 import final_project_group_2.WebApplication.services.impl.UserService;
@@ -40,7 +41,7 @@ public class UserController {
 
     //Agregar un usuario
     @PostMapping("/signup")
-    public ResponseEntity<?> addUser(@RequestBody User user){
+    public ResponseEntity<?> addUser(@RequestBody User user) throws UsernameException {
         return new ResponseEntity<>(userService.addUser(user), HttpStatus.CREATED);
     }
 

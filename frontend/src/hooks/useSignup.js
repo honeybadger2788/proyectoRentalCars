@@ -11,7 +11,9 @@ export const useSignup = () => {
       }
     ).then(response => {
       console.log(response)
-      if (response.status !== 201) {
+      if (response.status === 403) {
+        throw new Error  ("Usuario ya registrado")
+      } else if (response.status !== 201) {
         throw new Error("Lamentablemente no ha podido registrarse. Por favor intente más tarde")
       } else {
         return response.json()
