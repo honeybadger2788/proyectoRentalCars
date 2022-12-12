@@ -5,6 +5,7 @@ import final_project_group_2.WebApplication.models.User;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUserService {
 
@@ -17,4 +18,6 @@ public interface IUserService {
     ResponseEntity<?> deleteUser(Integer id);
 
     ResponseEntity<?> updateUser(User user);
+
+    Optional<UserDTO> findByEmail(String email);
 }

@@ -1,6 +1,6 @@
 package final_project_group_2.WebApplication.jwt;
 
-import final_project_group_2.WebApplication.services.impl.UserDetailsImpl;
+import final_project_group_2.WebApplication.models.UserDetailsImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @Component
 public class JwtUtil {
