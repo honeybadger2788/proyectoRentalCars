@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -143,6 +144,7 @@ public class CarService implements ICarService {
         for (Car car : listCars) {
             listCarsDTO.add(mapper.convertValue(car, CarDTO.class));
         }
+        Collections.shuffle(listCarsDTO);
         return listCarsDTO;
     }
 
