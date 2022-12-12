@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { useAuthContext } from '../../../hooks/useAuthContext';
@@ -54,13 +53,18 @@ function Drawer({ toogleDrawer }) {
         )}
         {user && (
           <div>
-            {isAdmin && (
+            {isAdmin? 
               <div className={styles.adminContainer}>
                 <Link to="/admin" onClick={onClickLink}>
                   Administración
                 </Link>
               </div>
-            )}
+              : <div className={styles.adminContainer}>
+                <Link to={`${user.id}/bookings`} onClick={onClickLink}>
+                  Mis reservas
+                </Link>
+                </div>
+            }
             <div className={styles.logout}>
               <p className="small-text">
                 ¿Deseas{' '}

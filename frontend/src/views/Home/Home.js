@@ -7,6 +7,7 @@ import CategoriesLayout from '../../components/CategoriesLayout/CategoriesLayout
 import useFetch from '../../useFetch';
 
 import styles from './Home.module.css';
+import Card from '../../components/List/Card/Card';
 
 function Home() {
   const [cityFilter, setCityFilter] = useState();
@@ -45,12 +46,12 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <Search getCity={getCity} getDates={getDates}/>
+      <Search getCity={getCity} getDates={getDates} />
       <section className={styles.bodyContainer}>
         {categories && (
           <CategoriesLayout getCategory={getCategory} categories={categories} />
         )}
-        {cars && <List data={cars} />}
+        {cars && cars.length > 0 && <List data={cars} />}
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
-.container {
-  background: var(--white);
-  padding-bottom: 16px;
+.section {
+  background: rgba(56, 59, 88, 0.1);
+  padding-bottom: 1.1875rem;
 }
 
 .container h1 {
