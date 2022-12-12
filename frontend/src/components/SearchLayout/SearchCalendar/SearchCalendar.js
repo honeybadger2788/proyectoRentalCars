@@ -10,9 +10,11 @@ function SearchCalendar({ range, setRange }) {
   // screen size
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const setWindowDimensions = () => {
-    setWindowWidth(window.innerWidth);
-  };
+  // open close
+  const [open, setOpen] = useState(false);
+
+  // get the target element to toggle
+  const refOne = useRef(null);
 
   useEffect(() => {
     window.addEventListener('resize', setWindowDimensions);
@@ -22,88 +24,61 @@ function SearchCalendar({ range, setRange }) {
     };
   }, []);
 
-    //Screen Size
-    const [mobileScreen, setMobileScreen] = useState(false);
+  useEffect(() => {
+    // event listeners
+    document.addEventListener('keydown', hideOnEscape, true);
+    document.addEventListener('click', hideOnClickOutside, true);
+  }, []);
 
-    useEffect(() => {
-      if (window.innerWidth > 750) {
-        setMobileScreen(false);
-      } else if (window.innerWidth < 750) {
-        setMobileScreen(true);
-      }
-    }, []);
-  
-    useEffect(() => {
-      const handleResize = () => {
-        if (window.innerWidth > 750) {
-          setMobileScreen(false);
-        } else if (window.innerWidth < 750) {
-          setMobileScreen(true);
-        }
-      };
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
-    }, []);
-  
-    // open close
-    const [open, setOpen] = useState(false);
-  
-    // get the target element to toggle
-    const refOne = useRef(null);
-  
-    useEffect(() => {
-      // event listeners
-      document.addEventListener('keydown', hideOnEscape, true);
-      document.addEventListener('click', hideOnClickOutside, true);
-    }, []);
-  
-    // hide dropdown on ESC press
-    const hideOnEscape = (e) => {
-      // console.log(e.key)
-      if (e.key === 'Escape') {
-        setOpen(false);
-      }
-    };
-  
-    // Hide on outside click
-    const hideOnClickOutside = (e) => {
-      // console.log(refOne.current)
-      // console.log(e.target)
-      if (refOne.current && !refOne.current.contains(e.target)) {
-        setOpen(false);
-      }
-    };
+  const setWindowDimensions = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  // hide dropdown on ESC press
+  const hideOnEscape = (e) => {
+    // console.log(e.key)
+    if (e.key === 'Escape') {
+      setOpen(false);
+    }
+  };
+
+  // Hide on outside click
+  const hideOnClickOutside = (e) => {
+    // console.log(refOne.current)
+    // console.log(e.target)
+    if (refOne.current && !refOne.current.contains(e.target)) {
+      setOpen(false);
+    }
+  };
 
   return (
-    <div className={styles.calendarWrap}>
-
-      <div ref={refOne} className={styles.calendarContainer}>
+    <div>
+      <div ref={refOne} className={styles.container}>
         <input
-            value={`${format(range[0].startDate, 'dd/MM/yyyy')} to ${format(
+          value={`${format(range[0].startDate, 'dd/MM/yyyy')} to ${format(
             range[0].endDate,
             'dd/MM/yyyy'
-            )}`}
-            readOnly
-            className={styles.input}
-            onClick={() => setOpen((open) => !open)}
+          )}`}
+          readOnly
+          className={styles.input}
+          onClick={() => setOpen((open) => !open)}
         />
-        {open &&  (
+        {open && (
+          <div className={styles.calendarContainer}>
             <DateRange
-                className={styles.calendar}
-                direction={windowWidth < 750 ? 'vertical' : 'horizontal'}
-                editableDateInputs={true}
-                minDate={new Date()}
-                months={windowWidth < 750 ? 1 : 2}
-                moveRangeOnFirstSelection={false}
-                ranges={range}
-                onChange={(item) => setRange([item.selection])}
-                showDateDisplay={false}
-                showMonthAndYearPickers={false}
+              className={styles.calendar}
+              direction={windowWidth < 750 ? 'vertical' : 'horizontal'}
+              editableDateInputs={true}
+              minDate={new Date()}
+              months={windowWidth < 750 ? 1 : 2}
+              moveRangeOnFirstSelection={false}
+              ranges={range}
+              onChange={(item) => setRange([item.selection])}
+              showDateDisplay={false}
+              showMonthAndYearPickers={false}
             />
+          </div>
         )}
-
       </div>
     </div>
   );
