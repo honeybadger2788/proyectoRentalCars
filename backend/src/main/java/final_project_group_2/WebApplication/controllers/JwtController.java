@@ -1,5 +1,6 @@
 package final_project_group_2.WebApplication.controllers;
 
+import final_project_group_2.WebApplication.exceptions.BadCredentialsException;
 import final_project_group_2.WebApplication.jwt.JwtUtil;
 import final_project_group_2.WebApplication.models.AuthenticationRequest;
 import final_project_group_2.WebApplication.models.AuthenticationResponse;
@@ -27,9 +28,15 @@ public class JwtController {
     private JwtUtil jwtUtil;
 
 @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) throws Exception{
-    Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest request) throws BadCredentialsException {
+    Authentication authentication;
+
+    try {
+        authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+    } catch (Exception e) {
+        throw new BadCredentialsException("Credenciales inválidas");
+    }
 
     SecurityContextHolder.getContext().setAuthentication(authentication);
     String jwt = jwtUtil.generateToken(authentication);
