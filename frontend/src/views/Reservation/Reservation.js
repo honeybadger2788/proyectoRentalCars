@@ -20,6 +20,7 @@ function Reservation() {
   const navigate = useNavigate();
   const { id } = useParams();
   const { user } = useAuthContext();
+
   const {
     data: car,
     loading,
@@ -29,6 +30,17 @@ function Reservation() {
   );
   if (error) {
     console.log(error);
+  }
+
+  const {
+    data: bookings,
+    loading: bookingsLoading,
+    error: bookingsError,
+  } = useFetch(
+    `http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/booking/car/${id}`
+  );
+  if (bookingsError) {
+    console.log(bookingsError);
   }
   // state related with date for calendar
   const [range, setRange] = useState([
@@ -44,8 +56,8 @@ function Reservation() {
   const [isBookingLoading, setIsBookingLoading] = useState(null);
 
   // functions related to date transform for calendar
-  const disabledDates = car
-    ? transformApiToDisabledDates(car.bookings)
+  const disabledDates = bookings
+    ? transformApiToDisabledDates(bookings)
     : undefined;
 
   function returnDatesBetweenStartAndEndDate(startDate, endDate) {
@@ -148,8 +160,8 @@ function Reservation() {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
-      {car && (
+      {loading && bookingsLoading && isBookingLoading && <p>Loading...</p>}
+      {bookings && car && (
         <section className={styles.container}>
           <Header subtitle={car?.category?.title} title={car?.title} />
           <div className={styles.body}>
