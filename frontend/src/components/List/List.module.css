@@ -1,25 +1,27 @@
 .section {
-  background: var(--white);
+  background: rgba(56, 59, 88, 0.1);
   padding-bottom: 1.1875rem;
 }
 
-.h1 {
-  padding: 1.1875rem 0rem 0.5rem 0.75rem;
+.container h1 {
+  padding: 16px 0px;
 }
 
-.card_layout {
+.layout {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
   grid-auto-rows: 1fr;
-  margin: 0px 8px;
+}
+
+/* TABLET */
+@media (max-width: 768px) and (min-width: 425px) {
 }
 
 /* DESKTOP */
 
 @media (min-width: 769px) {
-  .card_layout {
+  .layout {
     grid-template-columns: 1fr 1fr;
-    margin: 0px 40px;
   }
 }

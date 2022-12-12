@@ -49,6 +49,14 @@
   padding: 16px 0 0 0;
 }
 
+.adminContainer {
+  color: var(--secondary);
+}
+
+.adminContainer a:visited {
+  color: var(--secondary);
+}
+
 .logout {
   bottom: 8px;
   position: absolute;

@@ -3,13 +3,16 @@ package final_project_group_2.WebApplication.controllers;
 
 import final_project_group_2.WebApplication.dto.CarDTO;
 import final_project_group_2.WebApplication.models.Car;
+import final_project_group_2.WebApplication.repositories.ICarRepository;
+import final_project_group_2.WebApplication.searchs.CarSpecification;
 import final_project_group_2.WebApplication.services.ICarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
-import java.util.Map;
 
 //Endpoint de interaccion con "Categories"
 
@@ -21,18 +24,26 @@ public class CarController {
     @Autowired
     ICarService carService;
 
-    @GetMapping   
-    public List<CarDTO> listCars(@RequestParam(required = false)  String category, @RequestParam(required = false) Integer city){
-        
-        if(category != null && city == null){
-            return carService.listByCategory(category);
-        } else if (city != null && category == null) {
-            return carService.findByCity(city);
-        } else if (category != null && city != null){
-            return carService.findByCityAndCategory(category,city);
-        } else {
-            return carService.listCarRandom();
+    @GetMapping
+    public List<CarDTO> test(@RequestParam(required = false)  String category, @RequestParam(required = false) Integer city, @RequestParam(required = false) Date startDate, @RequestParam(required = false) Date endDate){
+
+
+        Specification<Car> spec = new CarSpecification();
+        if(category != null){
+            System.out.println(category);
+            spec = spec.and(new CarSpecification().carsByCategoryTitle(category));
         }
+        if (startDate != null && endDate != null) {
+            spec = spec.and(new CarSpecification().carsByDate(startDate,endDate));
+
+        }
+        if (city != null) {
+            System.out.println(city);
+            spec = spec.and(new CarSpecification().carsByCity(city));
+
+        }
+        System.out.println(spec.toString());
+        return carService.filterCars(spec);
 
     }
 

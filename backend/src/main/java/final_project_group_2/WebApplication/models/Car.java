@@ -1,10 +1,15 @@
 package final_project_group_2.WebApplication.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,7 +18,7 @@ public class Car extends ProductAbstract{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    public Integer id;
 
     @ManyToOne
     @JoinColumn(name = "categoryId")
@@ -29,47 +34,62 @@ public class Car extends ProductAbstract{
     @JoinColumn(name = "cityId")
     private City city;
 
+    private String address;
+
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value="rating-relation")
     private Set<Rating> rating;
 
     private String title;
 
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference(value="image-relation")
     private Set<Image> images;
 
     @ManyToMany(
             cascade = {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
-            }
+            },
+            fetch = FetchType.EAGER
     )
     @JoinTable(name = "car_policy",
             joinColumns = @JoinColumn(name = "carId"),
             inverseJoinColumns = @JoinColumn(name = "policyId"))
-    private Set<Policy> policies;
+    private Set<Policy> policies = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "car", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<Booking> bookings;
     
 
     public Car() {
     }
-    
-    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String title) {
+
+    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String address, String title) {
         this.category = category;
         this.descriptionTitle = descriptionTitle;
         this.characteristic = characteristic;
         this.descriptionContent = descriptionContent;
         this.city = city;
+        this.address = address;
         this.title = title;
+    }
+
+    public Car(Category category, String descriptionTitle, Characteristic characteristic, String descriptionContent,City city, String address, String title, Set<Policy> policies) {
+        this.category = category;
+        this.descriptionTitle = descriptionTitle;
+        this.characteristic = characteristic;
+        this.descriptionContent = descriptionContent;
+        this.city = city;
+        this.address = address;
+        this.title = title;
+        this.policies = policies;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Category getCategory() {
@@ -112,6 +132,14 @@ public class Car extends ProductAbstract{
         this.city = city;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public Set<Rating> getRating() {
         return rating;
     }
@@ -144,4 +172,13 @@ public class Car extends ProductAbstract{
     public void setPolicies(Set<Policy> policies) {
         this.policies = policies;
     }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
 }

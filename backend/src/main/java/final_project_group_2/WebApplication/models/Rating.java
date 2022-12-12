@@ -13,7 +13,7 @@ public class Rating {
 
     @ManyToOne
     @JoinColumn(name = "carId",nullable = false)
-    @JsonBackReference
+    @JsonBackReference(value="rating-relation")
     private Car car;
     private Integer userId;
     private Integer score;

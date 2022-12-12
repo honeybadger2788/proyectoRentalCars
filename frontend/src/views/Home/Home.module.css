@@ -1,0 +1,23 @@
+.container {
+  width: 100vw;
+  background: var(--white);
+}
+
+.bodyContainer {
+  padding: 8px;
+}
+
+/* TABLET */
+@media (max-width: 768px) and (min-width: 425px) {
+  .bodyContainer {
+    padding: 8px 40px;
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 769px) {
+  .bodyContainer {
+    padding: 8px 40px;
+  }
+}

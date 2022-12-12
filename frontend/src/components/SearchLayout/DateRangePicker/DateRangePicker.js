@@ -21,18 +21,18 @@ export default function DateRangeComp() {
   const [mobileScreen, setMobileScreen] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth > 425) {
+    if (window.innerWidth > 750) {
       setMobileScreen(false);
-    } else if (window.innerWidth < 425) {
+    } else if (window.innerWidth < 750) {
       setMobileScreen(true);
     }
   }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 425) {
+      if (window.innerWidth > 750) {
         setMobileScreen(false);
-      } else if (window.innerWidth < 425) {
+      } else if (window.innerWidth < 750) {
         setMobileScreen(true);
       }
     };

@@ -13,10 +13,60 @@
   padding: 24px 8px 0px 8px;
 }
 
+.calendarContainer {
+  background-color: var(--white);
+  padding: 8px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.calendarContainer h3 {
+  margin-bottom: 8px;
+}
+
+.reserve {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.reserve > button {
+  width: 100%;
+}
+
 /* DESKTOP */
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .social {
     padding: 24px 40px 0px 40px;
+  }
+
+  .calendarContainer {
+    padding: 16px 40px;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .calendar {
+    grid-column: span 2;
+  }
+
+  .reserve {
+    background-color: white;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07))
+      drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+    padding: 16px;
+    grid-column: span 1;
+    max-height: 150px;
+    align-self: center;
   }
 }

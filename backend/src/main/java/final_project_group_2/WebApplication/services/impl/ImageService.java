@@ -47,8 +47,8 @@ public class ImageService implements IImageService {
 
     @Override
     public ResponseEntity<?> addImage(Image newImage) {
-        if (imageRepository.save(newImage) != null) return ResponseEntity.ok(HttpStatus.OK);
-        return (ResponseEntity<?>) ResponseEntity.internalServerError();
+        if (imageRepository.save(newImage) != null) return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @Override

@@ -40,6 +40,25 @@
   display: none;
 }
 
+.adminContainer {
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.adminContainer a {
+  color: var(--secondary);
+}
+
+.adminContainer > a:visited {
+  color: var(--secondary);
+}
+
+.adminContainer > span {
+  color: var(--primary);
+}
+
 .bar {
   background-color: var(--secondary);
   display: block;
@@ -52,7 +71,7 @@
 
 /* TABLET */
 
-@media (max-width: 768px) and (min-width: 425px) {
+@media (max-width: 768px) and (min-width: 525px) {
   .nav_menu {
     display: flex;
     gap: 16px;
