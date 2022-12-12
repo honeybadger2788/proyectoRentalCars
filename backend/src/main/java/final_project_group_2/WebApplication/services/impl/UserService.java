@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import final_project_group_2.WebApplication.dto.CustomerDTO;
 import final_project_group_2.WebApplication.dto.UserDTO;
 import final_project_group_2.WebApplication.models.User;
+import final_project_group_2.WebApplication.models.UserDetailsImpl;
 import final_project_group_2.WebApplication.repositories.IUserRepository;
 import final_project_group_2.WebApplication.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import static java.util.Objects.isNull;
 
 @Service
 @Transactional
@@ -50,6 +54,9 @@ public class UserService implements IUserService, UserDetailsService {
 
     @Override
     public ResponseEntity<?> addUser(User newUser) {
+        Optional<UserDTO> userExist = findByEmail(newUser.getEmail());
+        if(!isNull(userExist))
+            return new ResponseEntity<>("Email ya registrado", HttpStatus.BAD_REQUEST);
         var user = new User();
         user.setFirstName(newUser.getFirstName());
         user.setLastName(newUser.getLastName());
@@ -98,6 +105,15 @@ public class UserService implements IUserService, UserDetailsService {
         }
     }
 
+    @Override
+    public Optional<UserDTO> findByEmail(String email) {
+        Optional<User> user = userRepository.findByEmail(email);
+        if (user.isPresent()) {
+            UserDTO userDTO = mapper.convertValue(user, UserDTO.class);
+            return Optional.ofNullable(userDTO);
+        }
+        return null;
+    }
 
 
     @Override

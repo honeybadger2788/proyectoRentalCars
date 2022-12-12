@@ -1,7 +1,6 @@
-package final_project_group_2.WebApplication.services.impl;
+package final_project_group_2.WebApplication.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import final_project_group_2.WebApplication.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
