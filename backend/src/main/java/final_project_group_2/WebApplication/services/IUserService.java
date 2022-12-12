@@ -1,6 +1,7 @@
 package final_project_group_2.WebApplication.services;
 
 import final_project_group_2.WebApplication.dto.UserDTO;
+import final_project_group_2.WebApplication.exceptions.UsernameException;
 import final_project_group_2.WebApplication.models.User;
 import org.springframework.http.ResponseEntity;
 
@@ -11,7 +12,7 @@ public interface IUserService {
 
     List<UserDTO> listUsers();
 
-    ResponseEntity<?> addUser(User user);
+    ResponseEntity<?> addUser(User user) throws UsernameException;
 
     ResponseEntity<?> findById(Integer id);
 

@@ -3,6 +3,7 @@ package final_project_group_2.WebApplication.services.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import final_project_group_2.WebApplication.dto.CustomerDTO;
 import final_project_group_2.WebApplication.dto.UserDTO;
+import final_project_group_2.WebApplication.exceptions.UsernameException;
 import final_project_group_2.WebApplication.models.User;
 import final_project_group_2.WebApplication.models.UserDetailsImpl;
 import final_project_group_2.WebApplication.repositories.IUserRepository;
@@ -53,10 +54,10 @@ public class UserService implements IUserService, UserDetailsService {
     }
 
     @Override
-    public ResponseEntity<?> addUser(User newUser) {
+    public ResponseEntity<?> addUser(User newUser) throws UsernameException {
         Optional<UserDTO> userExist = findByEmail(newUser.getEmail());
         if(!isNull(userExist))
-            return new ResponseEntity<>("Email ya registrado", HttpStatus.BAD_REQUEST);
+            throw new UsernameException("Email ya registrado");
         var user = new User();
         user.setFirstName(newUser.getFirstName());
         user.setLastName(newUser.getLastName());
