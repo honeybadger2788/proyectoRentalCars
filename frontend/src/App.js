@@ -13,6 +13,7 @@ import ProductCreationSuccess from './views/Admin/ProductCreationSuccess.js';
 import { RequireAuth } from './components/RequireAuth.js';
 
 import './styles/style.css';
+import MyBookings from './views/MyBookings/MyBookings.js';
 
 function App() {
   return (
@@ -48,6 +49,11 @@ function App() {
             }
           />
           <Route path="*" element={<ErrorPage />} />
+        <Route path=":userid/bookings" element={
+              <RequireAuth>
+                <MyBookings />
+              </RequireAuth>
+            } />
         </Route>
       </Routes>
     </div>

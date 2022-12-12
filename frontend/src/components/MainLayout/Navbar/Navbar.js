@@ -48,12 +48,15 @@ function Navbar({ hidden, toogleDrawer }) {
         </section>
       ) : (
         <section className={styles.nav_menu}>
-          {isAdmin && (
+          {isAdmin ? 
             <div className={styles.adminContainer}>
               <Link to="admin">Administración</Link>
               <span>|</span>
             </div>
-          )}
+          : <div className={styles.adminContainer}>
+          <Link to={`${user.id}/bookings`}>Mis reservas</Link>
+          <span>|</span>
+        </div>}
           <User user={user} />
         </section>
       )}
