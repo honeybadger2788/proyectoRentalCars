@@ -28,9 +28,20 @@ function CarDetailPage() {
     console.log(error);
   }
 
+  const {
+    data: bookings,
+    loading: loadingBooking,
+    error: errorBooking,
+  } = useFetch(
+    `http://grupo2backend-env.eba-ssmahfch.us-east-2.elasticbeanstalk.com/booking/car/${id}`
+  );
+  if (errorBooking) {
+    console.log(errorBooking);
+  }
+
   // functions related to date transform for calendar
-  const disabledDates = car
-    ? transformApiToDisabledDates(car.bookings)
+  const disabledDates = bookings
+    ? transformApiToDisabledDates(bookings)
     : undefined;
 
   function returnDatesBetweenStartAndEndDate(startDate, endDate) {
@@ -65,7 +76,7 @@ function CarDetailPage() {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
+      {loading && loadingBooking && <p>Loading...</p>}
       {car && (
         <section className={styles.container}>
           <div>

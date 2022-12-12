@@ -11,9 +11,7 @@ import styles from './Home.module.css';
 function Home() {
   const [cityFilter, setCityFilter] = useState();
   const [categoryFilter, setCategoryFilter] = useState();
-  const [dateFilter, setDateFilter] = useState([
-    'startDate=undefined&endDate=undefined',
-  ]);
+  const [dateFilter, setDateFilter] = useState([]);
 
   const getCity = (data) => {
     setCityFilter(`city=${data}`);
@@ -47,7 +45,7 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <Search getCity={getCity} />
+      <Search getCity={getCity} getDates={getDates}/>
       <section className={styles.bodyContainer}>
         {categories && (
           <CategoriesLayout getCategory={getCategory} categories={categories} />
