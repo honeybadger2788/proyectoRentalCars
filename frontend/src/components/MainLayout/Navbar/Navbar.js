@@ -30,7 +30,9 @@ function Navbar({ hidden, toogleDrawer }) {
             className={styles.logo_image}
             src="https://grupo2-frontend-images.s3.us-east-2.amazonaws.com/images/logo-1.svg"
           />
-          <p className={styles.logo_text}>Sentite como en tu hogar</p>
+          <p className={styles.logo_text}>
+            Lo importante es disfrutar el camino
+          </p>
         </div>
       </Link>
       {!user ? (
@@ -48,15 +50,17 @@ function Navbar({ hidden, toogleDrawer }) {
         </section>
       ) : (
         <section className={styles.nav_menu}>
-          {isAdmin ? 
+          {isAdmin ? (
             <div className={styles.adminContainer}>
               <Link to="admin">Administración</Link>
               <span>|</span>
             </div>
-          : <div className={styles.adminContainer}>
-          <Link to={`${user.id}/bookings`}>Mis reservas</Link>
-          <span>|</span>
-        </div>}
+          ) : (
+            <div className={styles.adminContainer}>
+              <Link to={`${user.id}/bookings`}>Mis reservas</Link>
+              <span>|</span>
+            </div>
+          )}
           <User user={user} />
         </section>
       )}
