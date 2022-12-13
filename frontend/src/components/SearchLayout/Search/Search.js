@@ -40,7 +40,7 @@ export default function Search({ getCity, getDates }) {
   return (
     <div className={styles.search}>
       <h1 className={styles.title}>
-        Busca ofertas en hoteles, casas y mucho más
+        Busca el auto ideal para tu próximo recorrido
       </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.formContainer}>
