@@ -22,7 +22,7 @@ Como cierre del primer track de la carrera, esperamos haber aplicado lo aprendid
 - **Testing**: Selenium IDE, Jest
 - **Herramientas**: Git, GitLab, IntelliJ, VS Code 
 
-# Integrantes grupo 2
+# Integrantes
 Podés conocer más sobre cada integrante del equipo y datos de contacto haciendo click en cada link correspondiente!
 
 - [Ariadna Naya](ariadna-naya) - [Backend developer]
