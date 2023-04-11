@@ -1,8 +1,7 @@
-<div align="center">![logo_4](uploads/9e5afb7096528f250384fcc38b6cc5d1/logo_4.png)</div>
+<div align="center">![logo_4](https://user-images.githubusercontent.com/72532638/231030379-2029722d-3eca-4673-801f-97582bed0d5a.png)</div>
 
 # Proyecto Integrador
-
-![smartmockups_lblip1ik](uploads/3e3e93e51fef8c59f1f9c3277287121b/smartmockups_lblip1ik.jpg)
+![smartmockups_lblip1ik](https://user-images.githubusercontent.com/72532638/231030714-55641c93-291a-4a10-a64c-56b22bd53c29.jpg)
 
 Link del demo en vivo: http://grupo2-frontend.s3-website.us-east-2.amazonaws.com/
 
@@ -75,7 +74,8 @@ https://docs.google.com/document/d/1N2Ug1tUGgAL8htHlwOsFs8Wruoe6uD0ljbm912jgE0g/
 # Documentación técnica
 
 ## Componentes y diagramas de la aplicación
-![Notes_221213_125204](uploads/a64ed31901332055fb8a1cf8863b3455/Notes_221213_125204.jpg)
+
+![Notes_221213_125204](https://user-images.githubusercontent.com/72532638/231030806-6b93c5f3-1ae4-4f45-83ba-03abf372aa0f.jpg)
 
 La arquitectura de esta aplicación web se basa en el patrón MVC (model-view-controller).
 
@@ -87,7 +87,7 @@ En resumen, esta arquitectura de aplicación web se divide en tres partes princi
 
 ## Estructura y diagrama de la infraestructura
 
-![image](uploads/94b10a082f4c247bcfee938f7ecd33cf/image.png)
+![image](https://user-images.githubusercontent.com/72532638/231030865-de48a17c-50e4-4cf0-9ed0-76904a192b90.png)
 
 Amazon S3 es un servicio de almacenamiento en la nube altamente duradero y escalable. Se puede usar para almacenar una amplia gama de datos, incluidos texto, imágenes, videos y artefactos de aplicaciones.
 
@@ -103,8 +103,8 @@ En general, esta infraestructura proporciona una solución segura, escalable y d
 
 La base de datos se construyó con MySQL y se utilizó el framework Hibernate como herramienta de mapeo objeto-relacional (ORM) para agilizar la relación con el backend de Java. Actualmente, funciona en la nube mediante el servicio de bases de datos relacionales de Amazon (Amazon RDS). 
 Las tablas principales, según las necesidades del negocio de alquiler de autos, son Car y Users, que mantienen entre sí una relación ManyToMany mediada por la tabla Booking. El resto de las tablas se ordenan alrededor de la relación principal, según el siguiente esquema:
-![EER_Diagram_-_DHBooking](uploads/ca1ecb6e39eb6abae0aeec4436affe4d/EER_Diagram_-_DHBooking.png)
 
+![EER_Diagram_-_DHBooking](https://user-images.githubusercontent.com/72532638/231030941-7d7735c8-18fc-4717-a3c6-c136238bc4e6.png)
 
 ### Creación de la base de datos
 
@@ -149,15 +149,15 @@ https://drive.google.com/file/d/1jtJwhVAlWrXFCO3KIl__3pptgWqK5Srv/view?usp=shari
 
 * Métrica de casos de prueba:
 
-![casos_de_uso](uploads/db698e958092e95472d02f7823fc8063/casos_de_uso.png)
+![casos_de_uso](https://user-images.githubusercontent.com/72532638/231031016-ca32b130-3150-4616-b11e-1125d5c798ea.png)
 
 * Test Suites Jest:
-![jest_tests](uploads/12e91d9fcd9583bceccf5ce2b23ba90b/jest_tests.png)
+![jest_tests](https://user-images.githubusercontent.com/72532638/231031065-2090ea10-ca57-4a7f-b53c-4f0fc2c83be9.png)
 
 * Pruebas Selenium IDE: [Proyecto_Integrador.side](uploads/7b304ea86f2ed552e84b00dbc39f8297/Proyecto_Integrador.side)
 
 * Cobertura: [index.html](uploads/dcdb4a50a4e16bd93a42368338e3c8cb/index.html)
- ![coverage](uploads/6e420b5af0c3cc415f05ad425ec79cca/coverage.png)
+![coverage](https://user-images.githubusercontent.com/72532638/231031152-23b8e44d-24da-45e6-933e-891bbb943cc7.png)
 
 ## Documentación Postman
 - Sprint 1: https://documenter.getpostman.com/view/17796629/2s8YemwEyW
